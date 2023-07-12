@@ -1,4 +1,4 @@
-async function createCheckoutSession(email, token, priceId, successUrl, cancelUrl)
+export async function createCheckoutSession(email, token, priceId, successUrl, cancelUrl)
 {
   const requestData = {
     email: email,
@@ -11,7 +11,7 @@ async function createCheckoutSession(email, token, priceId, successUrl, cancelUr
   return await triggerFirebaseFunction(token, functionURL, requestData);
 }
 
-async function setFullName(email, token, fullName)
+export async function setFullName(email, token, fullName)
 {
   const requestData = {
     email: email,
@@ -23,7 +23,7 @@ async function setFullName(email, token, fullName)
   return await triggerFirebaseFunction(token, functionURL, requestData);
 }
 
-async function checkLicenseVersion(email, token)
+export async function checkLicenseVersion(email, token)
 {
   const requestData = {
     email: email,
@@ -35,7 +35,7 @@ async function checkLicenseVersion(email, token)
   //Returns string options: expired, trial, personal, business.
 }
 
-module.exports = { createCheckoutSession, setFullName, checkLicenseVersion };
+// module.exports = { createCheckoutSession, setFullName, checkLicenseVersion };
 
 async function triggerFirebaseFunction(idToken, functionUrl, requestData)
 {
