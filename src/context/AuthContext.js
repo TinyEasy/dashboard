@@ -12,7 +12,7 @@ import {
 } from "firebase/auth";
 
 import { auth } from "../logic/firebase";
-import { checkLicenseVersion } from "logic/firebaseFunctions";
+import { checkLicenseVersion } from "../logic/firebaseFunctions";
 
 const UserContext = createContext();
 
