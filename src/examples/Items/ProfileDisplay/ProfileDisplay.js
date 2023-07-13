@@ -85,11 +85,11 @@ function ProfileDisplay({ profileSize }) {
           >
             {licenseText}
           </SoftTypography>
-          {license && license === "trial" && (
+          {/* {license && license === "trial" && (
             <SoftTypography variant="body2" fontWeight="medium" opacity="0.5">
               <i>{timeRemaining} Days Left </i>
             </SoftTypography>
-          )}
+          )} */}
         </SoftBox>
       </Grid>
     </Grid>
