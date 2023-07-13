@@ -6,11 +6,9 @@ import Grid from "@mui/material/Grid";
 
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
-import SoftTypography from "components/SoftTypography";
 
 // Soft UI Dashboard React examples
 import PageLayout from "examples/LayoutContainers/PageLayout";
-import gradientBackground from "assets/images/backgrounds/Gradient.png";
 
 function TinyEasyAuthLayout({ color, leftContent, rightContent, rightAlign }) {
   return (

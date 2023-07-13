@@ -31,8 +31,8 @@ function PersonalPricingTable() {
           user.email,
           user.accessToken,
           priceId,
-          "http://localhost:3000/subscription-success",
-          "http://localhost:3000/upgrade"
+          "https://dashboard.tinyeasy.co.nz/subscription-success",
+          "https://dashboard.tinyeasy.co.nz/upgrade"
         );
         console.log(checkoutUrl);
         const formattedCheckoutUrl = checkoutUrl.replace(/^"(.*)"$/, "$1");
