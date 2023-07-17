@@ -1,5 +1,4 @@
-export async function createCheckoutSession(email, token, priceId, successUrl, cancelUrl)
-{
+export async function createCheckoutSession(email, token, priceId, successUrl, cancelUrl) {
   const requestData = {
     email: email,
     priceId: priceId,
@@ -7,55 +6,61 @@ export async function createCheckoutSession(email, token, priceId, successUrl, c
     cancel_url: cancelUrl,
   };
 
-  const functionURL = 'https://us-central1-d-tiny-house-designer.cloudfunctions.net/createCheckoutSession';
+  const functionURL =
+    "https://us-central1-d-tiny-house-designer.cloudfunctions.net/createCheckoutSession";
   return await triggerFirebaseFunction(token, functionURL, requestData);
 }
 
-export async function setFullName(email, token, fullName)
-{
+export async function setFullName(email, token, fullName) {
   const requestData = {
     email: email,
-    fullName: fullName
+    fullName: fullName,
   };
 
-  const functionURL = 'https://us-central1-d-tiny-house-designer.cloudfunctions.net/setFullName';
+  const functionURL = "https://us-central1-d-tiny-house-designer.cloudfunctions.net/setFullName";
 
   return await triggerFirebaseFunction(token, functionURL, requestData);
 }
 
-export async function checkLicenseVersion(email, token)
-{
+export async function checkLicenseVersion(email, token) {
   const requestData = {
     email: email,
   };
 
-  const functionURL = 'https://us-central1-d-tiny-house-designer.cloudfunctions.net/checkUserLicenseVersion';
+  const functionURL =
+    "https://us-central1-d-tiny-house-designer.cloudfunctions.net/checkUserLicenseVersion";
   return await triggerFirebaseFunction(token, functionURL, requestData);
 
   //Returns string options: expired, trial, personal, business.
 }
 
-// module.exports = { createCheckoutSession, setFullName, checkLicenseVersion };
+export async function checkLicenseDaysLeft(email, token) {
+  const requestData = {
+    email: email,
+  };
 
-async function triggerFirebaseFunction(idToken, functionUrl, requestData)
-{
+  const functionURL =
+    "https://us-central1-d-tiny-house-designer.cloudfunctions.net/checkLicenseDaysLeft";
+  return await triggerFirebaseFunction(token, functionURL, requestData);
+  //Returns string literal days as a number.
+}
+
+async function triggerFirebaseFunction(idToken, functionUrl, requestData) {
   const requestOptions = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Bearer ${idToken}`,
     },
     body: JSON.stringify(requestData),
   };
 
-  try
-  {
+  try {
     const response = await fetch(functionUrl, requestOptions);
     const result = await response.text();
     return result;
-  } catch (error)
-  {
-    console.error('Error triggering Firebase Function:', error);
+  } catch (error) {
+    console.error("Error triggering Firebase Function:", error);
     throw error;
   }
 }

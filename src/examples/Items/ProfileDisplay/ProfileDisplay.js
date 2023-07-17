@@ -10,12 +10,20 @@ import { UserAuth } from "context/AuthContext";
 import PropTypes from "prop-types";
 
 function ProfileDisplay({ profileSize }) {
-  const { user, license } = UserAuth();
+  const { user, license, licenseExpiry } = UserAuth();
 
   let licenseText = "Free Trial";
   let licenseColor = "info";
   let licenseBorderColor = "rgb(254, 115, 76)";
-  let timeRemaining = "5";
+  let timeRemaining = "X";
+  GetTimeRemaining() ;
+
+  function GetTimeRemaining() {
+    if (licenseExpiry) {
+      timeRemaining = licenseExpiry;
+      console.log("timeRemaining = " + timeRemaining);
+    }
+  }
 
   switch (license) {
     case "trial":
@@ -85,11 +93,11 @@ function ProfileDisplay({ profileSize }) {
           >
             {licenseText}
           </SoftTypography>
-          {/* {license && license === "trial" && (
+          {license && license === "trial" && (
             <SoftTypography variant="body2" fontWeight="medium" opacity="0.5">
               <i>{timeRemaining} Days Left </i>
             </SoftTypography>
-          )} */}
+          )}
         </SoftBox>
       </Grid>
     </Grid>

@@ -20,9 +20,6 @@ import TinyEasyAuthLayout from "../components/TinyEasyAuthenticationLayout";
 import { checkError } from "logic/authenticationResponseMessages";
 
 function SignUpTinyEasy() {
-  const [agreement, setAgremment] = useState(true);
-  const handleSetAgremment = () => setAgremment(!agreement);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -36,8 +33,7 @@ function SignUpTinyEasy() {
     setError("");
 
     try {
-      await createUser(email, password);
-      console.log(event.message);
+      await createUser(email, password, name);
       navigate("/");
     } catch (event) {
       const { isError, errorMessage } = checkError(event);
@@ -110,7 +106,7 @@ function SignUpTinyEasy() {
               onChange={(e) => setName(e.target.value)}
               type="name"
               id="name"
-              placeholder="Name"
+              placeholder="First Name"
             />
           </SoftBox>
           <SoftBox mb={2}>

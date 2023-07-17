@@ -29,6 +29,7 @@ function SignInTinyEasy() {
   const handleLogIn = async (event) => {
     event.preventDefault();
     setError("");
+    console.log("Starting log in")
 
     try {
       await signIn(email, password);

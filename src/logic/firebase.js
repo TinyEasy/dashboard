@@ -5,7 +5,7 @@ import { getAuth} from "firebase/auth";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyA7rmDb7OpigauGdJr9dWlqVPBQGJzAMVQ",
-  authDomain: "d-tiny-house-designer.firebaseapp.com",
+  authDomain: "auth.tinyeasy.co.nz",
   projectId: "d-tiny-house-designer",
   storageBucket: "d-tiny-house-designer.appspot.com",
   messagingSenderId: "881264911503",
@@ -17,3 +17,4 @@ const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
 export default app;
+// authDomain: "d-tiny-house-designer.firebaseapp.com",
