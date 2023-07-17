@@ -23,7 +23,7 @@ function Launcher() {
     <IFrameLayout background="white" style={{ border: 'none', margin: '0', padding: '0'}}>
     <div style={{ overflow: "hidden" }}>
       <iframe
-        src="https://3dtinyhousebuilderfreev1.s3.ap-southeast-2.amazonaws.com/Launcher-Build-1/index.html"
+        src="https://3dthd-launcher.s3.ap-southeast-2.amazonaws.com/Build2F-EzAuth/index.html"
         width={iframeWidth}
         height={iframeHeight-10}
         title="3D Tiny House Designer"

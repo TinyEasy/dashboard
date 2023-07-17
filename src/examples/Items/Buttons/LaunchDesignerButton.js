@@ -4,10 +4,10 @@ import { UserAuth } from "context/AuthContext";
 
 function LaunchDesignerButton() {
   const { user } = UserAuth();
-  const accessToken = user.accessToken;
+  const accessToken = user.uid;
 
   const handleOpenNewTab = () => {
-    let queryString = "?token=";
+    let queryString = "?id=";
     if (accessToken) queryString = queryString + accessToken;
     const url = `/launcher${queryString}`;
     console.log("Url = " + url);
