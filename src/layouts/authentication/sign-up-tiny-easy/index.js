@@ -53,6 +53,11 @@ function SignUpTinyEasy() {
     }
   };
 
+  console.log("User on sign up: " + user);
+  if (user){
+    navigate("/home");
+  }
+
   const leftContent = (
     <SoftBox pt={2} pb={3} px={3}>
       {/* Headline */}

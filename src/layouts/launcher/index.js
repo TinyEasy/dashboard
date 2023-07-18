@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import IFrameLayout from "examples/LayoutContainers/IFrameLayout";
+import { UserAuth } from "context/AuthContext";
 
 function Launcher() {
   const [iframeWidth, setIframeWidth] = useState(window.innerWidth);
@@ -18,20 +19,30 @@ function Launcher() {
     };
   }, []);
 
+  const { user } = UserAuth();
+  const awsUrl = "https://3dthd-launcher.s3.ap-southeast-2.amazonaws.com/Build2G-EzAuth/index.html";
+  let id = "ID";
+  if (user && user.uid) {
+    id = user.uid;
+  }
+  let url = awsUrl + "?id=" + id;
+  console.log("ID = " + id);
+  console.log("URL = " + url);
+
   return (
     <div style={{ overflow: "hidden" }}>
-    <IFrameLayout background="white" style={{ border: 'none', margin: '0', padding: '0'}}>
-    <div style={{ overflow: "hidden" }}>
-      <iframe
-        src="https://3dthd-launcher.s3.ap-southeast-2.amazonaws.com/Build2F-EzAuth/index.html"
-        width={iframeWidth}
-        height={iframeHeight-10}
-        title="3D Tiny House Designer"
-        style={{ border: 'none', margin: '0', padding: '0' }}
-      ></iframe>
+      <IFrameLayout background="white" style={{ border: "none", margin: "0", padding: "0" }}>
+        <div style={{ overflow: "hidden" }}>
+          <iframe
+            src={url}
+            width={iframeWidth}
+            height={iframeHeight - 10}
+            title="3D Tiny House Designer"
+            style={{ border: "none", margin: "0", padding: "0" }}
+          ></iframe>
+        </div>
+      </IFrameLayout>
     </div>
-    </IFrameLayout></div>
- 
   );
 }
 

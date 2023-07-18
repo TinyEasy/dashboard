@@ -21,7 +21,7 @@ import { UserAuth } from "context/AuthContext";
 
 function SignInTinyEasy() {
   const navigate = useNavigate();
-  const { signIn, googleSignIn } = UserAuth();
+  const { signIn, googleSignIn, user } = UserAuth();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState();
@@ -52,6 +52,11 @@ function SignInTinyEasy() {
       setError(errorMessage);
     }
   };
+
+  console.log("User on sign in: " + user);
+  if (user){
+    navigate("/home");
+  }
 
   const leftContent = (
     <SoftBox pt={2} pb={3} px={3}>
