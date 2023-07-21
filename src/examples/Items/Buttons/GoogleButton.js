@@ -30,7 +30,7 @@ function GoogleButton(props) {
           </g>
         </g>
       </svg>{" "}
-      <SoftTypography variant="body2" color="dark" opacity="0.8">
+      <SoftTypography variant="body2" color="dark" opacity={0.8}>
         {" "}
         &nbsp;&nbsp; {label}{" "}
       </SoftTypography>

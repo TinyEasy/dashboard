@@ -34,7 +34,7 @@ function SignInTinyEasy() {
     try {
       await signIn(email, password);
       console.log(event.message);
-      navigate("/");
+      navigate("/loading");
     } catch (event) {
       const { isError, errorMessage } = checkError(event);
       setError(errorMessage);
@@ -45,7 +45,7 @@ function SignInTinyEasy() {
     try {
       await googleSignIn();
       console.log("redirecting to homepage");
-      navigate("/");
+      navigate("/loading");
 
     } catch (error) {
       const { isError, errorMessage } = checkError(error);
@@ -55,7 +55,7 @@ function SignInTinyEasy() {
 
   console.log("User on sign in: " + user);
   if (user){
-    navigate("/home");
+    navigate("/loading");
   }
 
   const leftContent = (

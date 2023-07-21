@@ -3,6 +3,7 @@ import SignInTinyEasy from "layouts/authentication/sign-in-tiny-easy";
 import ResetPassword from "layouts/authentication/reset-password";
 import SubscriptionSuccess from "layouts/subscription-success";
 import Launcher from "layouts/launcher";
+import Loading from "layouts/loading";
 
 const unlinkedRoutes = [
   {
@@ -29,6 +30,11 @@ const unlinkedRoutes = [
     key: "launcher",
     route: "/launcher",
     component: <Launcher />,
+  },
+  {
+    key: "loading",
+    route: "/loading",
+    component: <Loading />,
   },
 ];
 

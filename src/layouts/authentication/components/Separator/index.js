@@ -21,7 +21,7 @@ function Separator(props) {
         lineHeight={1}
         sx={{ transform: "translate(-50%, -60%)" }}
       >
-        <SoftTypography variant="body2"  color="secondary" opacity="0.5">
+        <SoftTypography variant="body2"  color="secondary" opacity={0.5}>
           {label}
         </SoftTypography>
       </SoftBox>

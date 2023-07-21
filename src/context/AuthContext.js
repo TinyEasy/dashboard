@@ -21,10 +21,6 @@ export const AuthContextProvider = ({ children }) => {
   const [license, setLicense] = useState({}); //Object to provide license information to project.
   const [licenseExpiry, setLicenseExpiry] = useState(0);
 
-  // const createUser = (email, password) => {
-  //   return createUserWithEmailAndPassword(auth, email, password);
-  // };
-
   const createUser = async (email, password, name) => {
     console.log("Creating new user:");
     console.log(email);
@@ -90,11 +86,9 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   async function handleSetLicense(userData) {
-    console.log("Checking License");
     if (userData && userData.email != null) {
       try {
         const licenseVersion = await checkLicenseVersion(userData.email, userData.accessToken);
-        console.log("Checking License Success");
         console.log("License version: " + licenseVersion);
         setLicense(licenseVersion);
       } catch (error) {
@@ -107,11 +101,9 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   async function handleSetLicenseExpiry(userData) {
-    console.log("Checking Days Left");
     if (userData && userData.email != null) {
       try {
         const daysLeft = await checkLicenseDaysLeft(userData.email, userData.accessToken);
-        console.log("Checking License Expiry");
         console.log("License expires in: " + daysLeft + " days.");
         setLicenseExpiry(daysLeft);
       } catch (error) {

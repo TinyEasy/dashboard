@@ -25,7 +25,7 @@ function LaunchDesignerPageItem() {
                 <SoftTypography variant="body2" color="text">
                   Start the 3D Tiny House Designer in your browser and design a tiny house!
                 </SoftTypography>
-                <SoftTypography variant="body2" color="text" opacity="0.7">
+                <SoftTypography variant="body2" color="text" opacity={0.7}>
                   <i>The software is made for computers and macs. If you are on a mobile phone or tablet, switch over to a PC!</i>
                 </SoftTypography>
               </SoftBox>

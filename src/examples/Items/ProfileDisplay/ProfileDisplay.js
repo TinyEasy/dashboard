@@ -21,7 +21,6 @@ function ProfileDisplay({ profileSize }) {
   function GetTimeRemaining() {
     if (licenseExpiry) {
       timeRemaining = licenseExpiry;
-      console.log("timeRemaining = " + timeRemaining);
     }
   }
 
@@ -83,7 +82,7 @@ function ProfileDisplay({ profileSize }) {
             variant="button"
             color={licenseColor}
             fontWeight="medium"
-            textGradient="true"
+            textGradient={true}
             style={{
               border: `solid ${licenseBorderColor}`,
               borderWidth: "2px",
