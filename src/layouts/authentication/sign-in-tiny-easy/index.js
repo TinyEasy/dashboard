@@ -54,7 +54,7 @@ function SignInTinyEasy() {
   };
 
   console.log("User on sign in: " + user);
-  if (user){
+  if (user && user.email){
     navigate("/loading");
   }
 

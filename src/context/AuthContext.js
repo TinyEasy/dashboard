@@ -78,7 +78,15 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const logout = () => {
-    return signOut(auth);
+    // Call the signOut function and then update the user state to null
+    return signOut(auth)
+      .then(() => {
+        setUser(null); // Set the user variable to null after successful logout
+      })
+      .catch((error) => {
+        // Handle any errors that occur during the logout process
+        console.error("Logout Error:", error);
+      });
   };
 
   const forgotPassword = (email) => {
