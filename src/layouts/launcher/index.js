@@ -20,7 +20,7 @@ function Launcher() {
   }, []);
 
   const { user } = UserAuth();
-  const awsUrl = "https://3dthd-launcher.s3.ap-southeast-2.amazonaws.com/Build2G-EzAuth/index.html";
+  const awsUrl = "https://3dthd-launcher.s3.ap-southeast-2.amazonaws.com/Build3A-LaunchTest/index.html";
   let id = "ID";
   if (user && user.uid) {
     id = user.uid;

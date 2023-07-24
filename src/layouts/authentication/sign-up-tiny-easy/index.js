@@ -34,7 +34,7 @@ function SignUpTinyEasy() {
 
     try {
       await createUser(email, password, name);
-      navigate("/loading");
+      navigate("/signup-details");
     } catch (event) {
       const { isError, errorMessage } = checkError(event);
       console.log(event.message);
@@ -45,7 +45,7 @@ function SignUpTinyEasy() {
   const handleGoogleSignUp = async () => {
     try {
       await googleSignIn();
-      navigate("/loading");
+      navigate("/signup-details");
     } catch (error) {
       const { isError, errorMessage } = checkError(error);
       console.log(error.message);

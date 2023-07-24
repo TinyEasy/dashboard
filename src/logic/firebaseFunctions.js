@@ -45,6 +45,18 @@ export async function checkLicenseDaysLeft(email, token) {
   //Returns string literal days as a number.
 }
 
+export async function setUsageIntent(email, token, usageIntent)
+{
+  const requestData = {
+    email: email,
+    usageIntent: usageIntent
+  };
+
+  const functionURL = 'https://us-central1-d-tiny-house-designer.cloudfunctions.net/setUsageIntent';
+
+  return await triggerFirebaseFunction(token, functionURL, requestData);
+}
+
 async function triggerFirebaseFunction(idToken, functionUrl, requestData) {
   const requestOptions = {
     method: "POST",
@@ -64,3 +76,5 @@ async function triggerFirebaseFunction(idToken, functionUrl, requestData) {
     throw error;
   }
 }
+
+
