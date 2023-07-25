@@ -35,6 +35,8 @@ export const AuthContextProvider = ({ children }) => {
         throw new Error("Authentication failed. User credential not available.");
       }
 
+      setUser(userCredential.user);
+
       // Introduce a delay of 15 seconds
       await new Promise((resolve) => setTimeout(resolve, 15000));
 

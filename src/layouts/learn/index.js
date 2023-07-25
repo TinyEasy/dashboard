@@ -39,11 +39,11 @@ function Learn() {
             <Grid item xs={12} lg={6}>
               {/*Launch crashcourse video*/}
               <VideoCard
-                image="https://drive.google.com/uc?export=download&id=1eX8wxgPj74N-WALDGV1c5hkqs8V3ivDg"
+                image="https://drive.google.com/uc?export=download&id=1U6tEQfBzFyqIaKewxiG1ypIwSoEixPxf"
                 buttonText="Watch Tutorial"
-                title="Watch: 3DTHD Crash Course"
-                watchTime="5 minutes"
-                action={{ type: "internal", route: "/learn" }}
+                title="Watch: 3D Tiny House Designer Basics Course"
+                watchTime="Follow bite-sized videos!"
+                action={{ type: "external", route: "https://www.tinyeasy.co.nz/courses/3dthd-course-basics" }}
               />
             </Grid>
           </Grid>

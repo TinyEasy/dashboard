@@ -57,6 +57,20 @@ export async function setUsageIntent(email, token, usageIntent)
   return await triggerFirebaseFunction(token, functionURL, requestData);
 }
 
+export async function createMailchimpSubscription(email, token, firstName, lastName)
+{
+  const requestData = {
+    email: email,
+    firstName: firstName,
+    lastName: lastName
+  };
+
+  const functionURL = 'https://us-central1-d-tiny-house-designer.cloudfunctions.net/createMailchimpSubscription';
+  return await triggerFirebaseFunction(token, functionURL, requestData);
+}
+
+//---------------------------------------------------------------
+
 async function triggerFirebaseFunction(idToken, functionUrl, requestData) {
   const requestOptions = {
     method: "POST",

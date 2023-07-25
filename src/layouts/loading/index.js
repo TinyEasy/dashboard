@@ -17,20 +17,6 @@ function Loading() {
   const navigate = useNavigate();
   const { license } = UserAuth();
 
-  //   const [secondsRemaining, setSecondsRemaining] = useState(20);
-
-  //   useEffect(() => {
-  //     const timer = setTimeout(() => {
-  //       if (secondsRemaining > 1) {
-  //         setSecondsRemaining((seconds) => seconds - 1);
-  //       } else {
-  //         navigate("/home");
-  //       }
-  //     }, 1000);
-
-  //     return () => clearTimeout(timer);
-  //   }, [secondsRemaining, navigate]);
-
   if (
     license === "trial" ||
     license === "personal" ||

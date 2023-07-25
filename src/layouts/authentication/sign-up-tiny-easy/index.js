@@ -18,6 +18,7 @@ import Separator from "layouts/authentication/components/Separator";
 // Authentication layout components
 import TinyEasyAuthLayout from "../components/TinyEasyAuthenticationLayout";
 import { checkError } from "logic/authenticationResponseMessages";
+import { createMailchimpSubscription } from "logic/firebaseFunctions";
 
 function SignUpTinyEasy() {
   const [email, setEmail] = useState("");
@@ -33,12 +34,34 @@ function SignUpTinyEasy() {
     setError("");
 
     try {
+      console.log("1. Creating user");
       await createUser(email, password, name);
+      console.log("2. Creating mailchimp user");
+      await handleRegularMailchimpSubscription();
+      console.log("3. Navigating");
       navigate("/signup-details");
     } catch (event) {
       const { isError, errorMessage } = checkError(event);
       console.log(event.message);
       setError(errorMessage);
+    }
+  };
+
+  const handleRegularMailchimpSubscription = async () => {
+    console.log("Starting Mailchimp Subscription");
+
+    function delay(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+    await delay(15000);
+    console.log("User for Mailchimp: " + user);
+    const accessToken = user.accessToken;
+    try {
+      await createMailchimpSubscription(email, accessToken, name, "");
+      console.log("Subscription Success! " + email, accessToken, name);
+    } catch (error) {
+      console.log("Mailchimp Subscription Failed");
+      console.log(error);
     }
   };
 
@@ -54,7 +77,7 @@ function SignUpTinyEasy() {
   };
 
   console.log("User on sign up: " + user);
-  if (user && user.email){
+  if (user && user.email) {
     navigate("/loading");
   }
 
