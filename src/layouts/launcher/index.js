@@ -21,7 +21,8 @@ function Launcher() {
   }, []);
 
   const { user } = UserAuth();
-  const awsUrl = "https://3dthd-launcher.s3.ap-southeast-2.amazonaws.com/Build3A-LaunchTest/index.html";
+  const awsUrl =
+    "https://3dthd-launcher.s3.ap-southeast-2.amazonaws.com/Build3A-LaunchTest/index.html";
   let id = "ID";
   if (user && user.uid) {
     id = user.uid;
@@ -35,11 +36,20 @@ function Launcher() {
     setError(true);
   };
 
+  // Check if the platform is compatible (Windows, Mac, or Linux)
+  const isCompatiblePlatform = ["Win32", "MacIntel", "Linux x86_64"].includes(navigator.platform);
+
   return (
     <div style={{ overflow: "hidden" }}>
-      {error ? ( // Show error message if there's an error
+      {!isCompatiblePlatform ? ( // Show error message if the platform is not compatible
         <div style={{ textAlign: "center", padding: "20px" }}>
-          <p>Something went wrong. Please close the tab and open the 3D Tiny House Designer again.</p>
+          <p>Operating system not compatible. Switch to a device running Windows, Mac, or Linux.</p>
+        </div>
+      ) : error ? ( // Show error message if there's an error
+        <div style={{ textAlign: "center", padding: "20px" }}>
+          <p>
+            Something went wrong. Please close the tab and open the 3D Tiny House Designer again.
+          </p>
         </div>
       ) : (
         <IFrameLayout background="white" style={{ border: "none", margin: "0", padding: "0" }}>
@@ -60,4 +70,3 @@ function Launcher() {
 }
 
 export default Launcher;
-
