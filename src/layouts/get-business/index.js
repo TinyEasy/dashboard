@@ -70,7 +70,7 @@ function GetBusiness() {
               image="https://drive.google.com/uc?export=download&id=15JbXV4e1zLGWvhg6k1xtPQygcTY8TX-k"
               action={{
                 type: "external",
-                route: "https://documentation.tinyeasy.co.nz/",
+                route: "https://www.tinyeasy.co.nz/book-your-demo",
                 label: "Book Call",
               }}
             />

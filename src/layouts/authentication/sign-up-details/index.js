@@ -45,10 +45,15 @@ function SignUpDetailsTinyEasy() {
         </SoftTypography>
       </SoftBox>
 
-      {/* Form */}
+      {/* Headline */}
+      <SoftBox mb={1}>
+        <SoftTypography variant="body2" opacity={0.7}>
+          <i>Your answer will help us customise your experience!</i>
+        </SoftTypography>
+      </SoftBox>
+
+      {/* Buttons */}
       <SoftBox pb={1}>
-        {/* Input Fields */}
-        {/* Sign Up Button */}
         <SoftBox mt={2} mb={1}>
           <SoftButton onClick={() => handleSetUsageIntent("personal")} variant="outlined" color="secondary" fullWidth>
             🏠 My own tiny house

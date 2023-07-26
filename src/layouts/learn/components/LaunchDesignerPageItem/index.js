@@ -23,7 +23,7 @@ function LaunchLearnCentrePageItem() {
               </SoftTypography>
               <SoftBox mb={6}>
                 <SoftTypography variant="body2" color="text">
-                  We’ve created a “Tutorial Website” with step-by-step instructions for every tool
+                  We’ve created a “Manual Website” with step-by-step instructions for every tool
                   in the 3D Tiny House Designer. <br />
                   <br />
                   Use it as your go to “Guide Book” if you want to learn a new tool or find out

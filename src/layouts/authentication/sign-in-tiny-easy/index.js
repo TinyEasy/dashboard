@@ -43,12 +43,15 @@ function SignInTinyEasy() {
 
   const handleGoogleLogIn = async () => {
     try {
-      await googleSignIn();
-      console.log("redirecting to homepage");
-      navigate("/loading");
-
+      const { user, isNewUser } = await googleSignIn();
+      if (isNewUser) {
+        navigate("/signup-details"); // Redirect to the questionnaire for new users
+      } else {
+        navigate("/loading"); // Redirect to the loading page for returning users
+      }
     } catch (error) {
       const { isError, errorMessage } = checkError(error);
+      console.log(error.message);
       setError(errorMessage);
     }
   };

@@ -56,6 +56,20 @@ function Support() {
               </SoftTypography>
             </TextImageButtonCard>
           </Grid>
+          <Grid item xs={12} lg={5}>
+            <TextImageButtonCard
+              heading="Are you a builder/business?"
+              body="Let's talk! Hey, it's Till, co-founder of Tiny Easy. :) If you've been drafting your plans manually or outsourcing your work, the 3DTHD Business will help you save countless hours with the advanced tools and instant PDF plan export. 
+              Let's jump on a call so I can show you how the Business version can help your business, answer your questions and set you up for a Business Trial. :D 
+              Talk soon! "
+              image="https://drive.google.com/uc?export=download&id=15JbXV4e1zLGWvhg6k1xtPQygcTY8TX-k"
+              action={{
+                type: "external",
+                route: "https://www.tinyeasy.co.nz/book-your-demo",
+                label: "Book Call",
+              }}
+            />
+          </Grid>
         </Grid>
       </SoftBox>
 

@@ -67,8 +67,12 @@ function SignUpTinyEasy() {
 
   const handleGoogleSignUp = async () => {
     try {
-      await googleSignIn();
-      navigate("/signup-details");
+      const { user, isNewUser } = await googleSignIn();
+      if (isNewUser) {
+        navigate("/signup-details"); // Redirect to the questionnaire for new users
+      } else {
+        navigate("/loading"); // Redirect to the loading page for returning users
+      }
     } catch (error) {
       const { isError, errorMessage } = checkError(error);
       console.log(error.message);

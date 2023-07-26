@@ -40,7 +40,7 @@ function Support() {
           <Grid item xs={12} lg={5}>
             <TextImageButtonCard
               heading="Billing"
-              body="View and edit your billing information, update billing details and view previous invoices."
+              body="Open the Billing Portal powered by Stripe. View and edit your billing information, update billing details and view previous invoices. (Billing Portal is only available if you have purchased a subscription.)"
               image="https://drive.google.com/uc?export=download&id=1xrinXXLc1j1HJkGAK1H8MWy9UAY6Ayls"
               action={{
                 type: "external",

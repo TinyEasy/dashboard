@@ -65,10 +65,19 @@ export const AuthContextProvider = ({ children }) => {
   const googleSignIn = () => {
     return new Promise((resolve, reject) => {
       const provider = new GoogleAuthProvider();
-      const unsubscribe = onIdTokenChanged(auth, (user) => {
+      const unsubscribe = onIdTokenChanged(auth, async (user) => {
         if (user) {
-          unsubscribe();
-          resolve(user);
+          // Check if the user is new by looking for additionalUserInfo in the user object
+          if (user.metadata.creationTime === user.metadata.lastSignInTime) {
+            console.log("New user found");
+            // Resolve with isNewUser flag set to true if the user is new
+            unsubscribe();
+            resolve({ user, isNewUser: true });
+          } else {
+            // Resolve with isNewUser flag set to false if the user is not new
+            unsubscribe();
+            resolve({ user, isNewUser: false });
+          }
         }
       });
 

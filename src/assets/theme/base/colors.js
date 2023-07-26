@@ -197,11 +197,11 @@ const colors = {
       state: "#8ca1cb",
       border: "#dadee6",
     },
-
+    
     info: {
-      main: "#2152ff",
-      state: "#02c6f3",
-      border: "#b9ecf8",
+      main: "#FF5337",
+      state: "#FF5337",
+      border: "#FF5337",
     },
 
     success: {
@@ -247,8 +247,8 @@ const colors = {
     },
 
     info: {
-      background: "#abe9f7",
-      text: "#08a1c4",
+      background: "#e8a279",
+      text: "#FF5337",
     },
 
     success: {
@@ -278,8 +278,8 @@ const colors = {
   },
 
   inputColors: {
-    borderColor: { main: "#d2d6da", focus: "#35d1f5" },
-    boxShadow: "#81e3f9",
+    borderColor: { main: "#d2d6da", focus: "#FE734C" },
+    boxShadow: "#FE734C",
     error: "#fd5c70",
     success: "#66d432",
   },

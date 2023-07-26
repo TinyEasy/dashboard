@@ -27,15 +27,11 @@ function Learn() {
         {/*Header 1*/}
         <SoftBox mb={3}>
           <SoftTypography variant="h1" fontWeight="bold">
-            <LearnIconLine size="50px" /> Learn Centre
+            <LearnIconLine size="50px" /> Learn
           </SoftTypography>
         </SoftBox>
         <SoftBox mb={3}>
           <Grid container spacing={3}>
-            <Grid item xs={12} lg={6}>
-              {/*Launch Designer Card*/}
-              <LaunchLearnCentrePageItem />
-            </Grid>
             <Grid item xs={12} lg={6}>
               {/*Launch crashcourse video*/}
               <VideoCard
@@ -43,8 +39,15 @@ function Learn() {
                 buttonText="Watch Tutorial"
                 title="Watch: 3D Tiny House Designer Basics Course"
                 watchTime="Follow bite-sized videos!"
-                action={{ type: "external", route: "https://www.tinyeasy.co.nz/courses/3dthd-course-basics" }}
+                action={{
+                  type: "external",
+                  route: "https://www.tinyeasy.co.nz/courses/3dthd-course-basics",
+                }}
               />
+            </Grid>
+            <Grid item xs={12} lg={6}>
+              {/*Launch Designer Card*/}
+              <LaunchLearnCentrePageItem />
             </Grid>
           </Grid>
         </SoftBox>
