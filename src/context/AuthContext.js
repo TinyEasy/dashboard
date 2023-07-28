@@ -105,6 +105,15 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   async function handleSetLicense(userData) {
+    if (
+      license === "trial" ||
+      license === "personal" ||
+      license === "expired" ||
+      license === "business"
+    ) {
+      return;
+    }
+
     if (userData && userData.email != null) {
       try {
         const licenseVersion = await checkLicenseVersion(userData.email, userData.accessToken);

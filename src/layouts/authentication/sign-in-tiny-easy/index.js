@@ -15,6 +15,8 @@ import TinyEasyAuthLayout from "../components/TinyEasyAuthenticationLayout";
 import Separator from "layouts/authentication/components/Separator";
 
 import { checkError } from "logic/authenticationResponseMessages";
+import { createMailchimpSubscription } from "logic/firebaseFunctions";
+import { getFirstName } from "logic/helperFunctions";
 
 //Authentication logic
 import { UserAuth } from "context/AuthContext";
@@ -41,11 +43,17 @@ function SignInTinyEasy() {
     }
   };
 
-  const handleGoogleLogIn = async () => {
+const handleGoogleLogIn = async () => {
     try {
       const { user, isNewUser } = await googleSignIn();
       if (isNewUser) {
         navigate("/signup-details"); // Redirect to the questionnaire for new users
+        console.log("signed in new user");
+        let firstName = "-";
+        if (user && user.displayName) {
+          firstName = getFirstName(user.displayName);
+        }
+        await handleMailchimpSubscription(user.email, firstName);
       } else {
         navigate("/loading"); // Redirect to the loading page for returning users
       }
@@ -53,6 +61,21 @@ function SignInTinyEasy() {
       const { isError, errorMessage } = checkError(error);
       console.log(error.message);
       setError(errorMessage);
+    }
+  };
+
+    const handleMailchimpSubscription = async (email, firstName) => {
+    console.log("Starting mailing list subscription");
+    function delay(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+    await delay(15000);
+    try {
+      await createMailchimpSubscription(email, firstName, ["3dthd-dashboard"]);
+      console.log("Subscribed to mailing list!");
+    } catch (error) {
+      console.log("Mailing List Subscription Failed");
+      console.log(error);
     }
   };
 

@@ -19,11 +19,12 @@ import Separator from "layouts/authentication/components/Separator";
 import TinyEasyAuthLayout from "../components/TinyEasyAuthenticationLayout";
 import { checkError } from "logic/authenticationResponseMessages";
 import { createMailchimpSubscription } from "logic/firebaseFunctions";
+import { getFirstName } from "logic/helperFunctions";
 
 function SignUpTinyEasy() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
   const [error, setError] = useState("");
 
   const { user, createUser, googleSignIn } = UserAuth();
@@ -34,34 +35,13 @@ function SignUpTinyEasy() {
     setError("");
 
     try {
-      console.log("1. Creating user");
-      await createUser(email, password, name);
-      console.log("2. Creating mailchimp user");
-      await handleRegularMailchimpSubscription();
-      console.log("3. Navigating");
+      await createUser(email, password, firstName);
       navigate("/signup-details");
+      await handleMailchimpSubscription(email, firstName);
     } catch (event) {
       const { isError, errorMessage } = checkError(event);
       console.log(event.message);
       setError(errorMessage);
-    }
-  };
-
-  const handleRegularMailchimpSubscription = async () => {
-    console.log("Starting Mailchimp Subscription");
-
-    function delay(ms) {
-      return new Promise((resolve) => setTimeout(resolve, ms));
-    }
-    await delay(15000);
-    console.log("User for Mailchimp: " + user);
-    const accessToken = user.accessToken;
-    try {
-      await createMailchimpSubscription(email, accessToken, name, "");
-      console.log("Subscription Success! " + email, accessToken, name);
-    } catch (error) {
-      console.log("Mailchimp Subscription Failed");
-      console.log(error);
     }
   };
 
@@ -70,6 +50,12 @@ function SignUpTinyEasy() {
       const { user, isNewUser } = await googleSignIn();
       if (isNewUser) {
         navigate("/signup-details"); // Redirect to the questionnaire for new users
+        console.log("signed in new user");
+        let firstName = "-";
+        if (user && user.displayName) {
+          firstName = getFirstName(user.displayName);
+        }
+        await handleMailchimpSubscription(user.email, firstName);
       } else {
         navigate("/loading"); // Redirect to the loading page for returning users
       }
@@ -80,7 +66,21 @@ function SignUpTinyEasy() {
     }
   };
 
-  console.log("User on sign up: " + user);
+  const handleMailchimpSubscription = async (email, firstName) => {
+    console.log("Starting mailing list subscription");
+    function delay(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+    await delay(15000);
+    try {
+      await createMailchimpSubscription(email, firstName, ["3dthd-dashboard"]);
+      console.log("Subscribed to mailing list!");
+    } catch (error) {
+      console.log("Mailing List Subscription Failed");
+      console.log(error);
+    }
+  };
+
   if (user && user.email) {
     navigate("/loading");
   }
@@ -135,7 +135,7 @@ function SignUpTinyEasy() {
           </SoftBox>
           <SoftBox mb={2}>
             <SoftInput
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setFirstName(e.target.value)}
               type="name"
               id="name"
               placeholder="First Name"
