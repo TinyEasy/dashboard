@@ -1,7 +1,7 @@
 import ReactGA4 from "react-ga4";
 
 const loginEvent = () => {
-    ReactGA4.event("login");
+    ReactGA4.event("login", {method:"Google"});
     console.log("Login Event Fired");
 };
 

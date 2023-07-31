@@ -33,20 +33,19 @@ function SignInTinyEasy() {
   const handleLogIn = async (event) => {
     event.preventDefault();
     setError("");
-    console.log("Starting log in")
+    console.log("Starting log in");
 
     try {
       await signIn(email, password);
-      console.log(event.message);
       navigate("/loading");
-      ga4Events.loginevent();
+      ga4Events.eventLogin();
     } catch (event) {
       const { isError, errorMessage } = checkError(event);
       setError(errorMessage);
     }
   };
 
-const handleGoogleLogIn = async () => {
+  const handleGoogleLogIn = async () => {
     try {
       const { user, isNewUser } = await googleSignIn();
       if (isNewUser) {
@@ -56,11 +55,11 @@ const handleGoogleLogIn = async () => {
         if (user && user.displayName) {
           firstName = getFirstName(user.displayName);
         }
-        ga4Events.loginevent();
         await handleMailchimpSubscription(user.email, firstName);
       } else {
         navigate("/loading"); // Redirect to the loading page for returning users
       }
+      ga4Events.eventLogin();
     } catch (error) {
       const { isError, errorMessage } = checkError(error);
       console.log(error.message);
@@ -68,7 +67,7 @@ const handleGoogleLogIn = async () => {
     }
   };
 
-    const handleMailchimpSubscription = async (email, firstName) => {
+  const handleMailchimpSubscription = async (email, firstName) => {
     console.log("Starting mailing list subscription");
     function delay(ms) {
       return new Promise((resolve) => setTimeout(resolve, ms));
@@ -84,7 +83,7 @@ const handleGoogleLogIn = async () => {
   };
 
   console.log("User on sign in: " + user);
-  if (user && user.email){
+  if (user && user.email) {
     navigate("/loading");
   }
 
