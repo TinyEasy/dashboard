@@ -21,6 +21,8 @@ import { getFirstName } from "logic/helperFunctions";
 //Authentication logic
 import { UserAuth } from "context/AuthContext";
 
+import { ga4Events } from "logic/google-analytics/google-analytics-events";
+
 function SignInTinyEasy() {
   const navigate = useNavigate();
   const { signIn, googleSignIn, user } = UserAuth();
@@ -37,6 +39,7 @@ function SignInTinyEasy() {
       await signIn(email, password);
       console.log(event.message);
       navigate("/loading");
+      ga4Events.loginevent();
     } catch (event) {
       const { isError, errorMessage } = checkError(event);
       setError(errorMessage);
@@ -53,6 +56,7 @@ const handleGoogleLogIn = async () => {
         if (user && user.displayName) {
           firstName = getFirstName(user.displayName);
         }
+        ga4Events.loginevent();
         await handleMailchimpSubscription(user.email, firstName);
       } else {
         navigate("/loading"); // Redirect to the loading page for returning users

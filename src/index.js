@@ -9,7 +9,6 @@ import { AuthContextProvider } from "context/AuthContext";
 
 import ReactGA4 from "react-ga4";
 ReactGA4.initialize("G-HYX901PX23");
-console.log("GA INITIALIZED");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
