@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 // @mui material components
 import { ThemeProvider } from "@mui/material/styles";
@@ -91,7 +92,16 @@ export default function App() {
           <Route
             exact
             path={route.route}
-            element={<ProtectedRoute>{route.component}</ProtectedRoute>}
+            element={
+              <ProtectedRoute>
+                <div>
+                  <Helmet>
+                    <title>{route.name} | Tiny Easy Dashboard</title>
+                  </Helmet>
+                  {route.component}
+                </div>
+              </ProtectedRoute>
+            }
             key={route.key}
           />
         );
@@ -103,7 +113,21 @@ export default function App() {
   const getUnlinkedRoutes = (allRoutes) =>
     allRoutes.map((route) => {
       if (route.route) {
-        return <Route exact path={route.route} element={route.component} key={route.key} />;
+        return (
+          <Route
+            exact
+            path={route.route}
+            element={
+              <div>
+                <Helmet>
+                  <title>{route.name} | Tiny Easy Dashboard</title>
+                </Helmet>
+                {route.component}
+              </div>
+            }
+            key={route.key}
+          />
+        );
       }
       return null;
     });

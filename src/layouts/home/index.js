@@ -1,3 +1,5 @@
+import { Helmet } from 'react-helmet';
+
 // @mui material components
 import Grid from "@mui/material/Grid";
 
@@ -28,65 +30,71 @@ function Home() {
   const { user } = UserAuth();
 
   return (
-    <DashboardLayout>
-      <DashboardNavbarTinyEasy />
+      <DashboardLayout>
+        <DashboardNavbarTinyEasy />
 
-      {/*Site content*/}
-      <SoftBox px={3} py={3}>
-        {/*Header 1*/}
-        <SoftBox mb={3}>
-          <SoftTypography variant="h1" fontWeight="bold">
-            <WavingHandIcon size="50px"/> Welcome{" "}
-            {user && user.displayName ? user.displayName : user.email}!
-          </SoftTypography>
+        {/*Site content*/}
+        <SoftBox px={3} py={3}>
+          {/*Header 1*/}
+          <SoftBox mb={3}>
+            <SoftTypography variant="h1" fontWeight="bold">
+              <WavingHandIcon size="50px" /> Welcome{" "}
+              {user && user.displayName ? user.displayName : user.email}!
+            </SoftTypography>
+          </SoftBox>
+          <SoftBox mb={3}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} lg={6}>
+                {/*Launch Designer Card*/}
+                <LaunchDesignerPageItem />
+              </Grid>
+              <Grid item xs={12} lg={6}>
+                {/*Welcome to trial card*/}
+                <LicenseReminderPageItem />
+              </Grid>
+            </Grid>
+          </SoftBox>
+          {/*Header 2*/}
+          <SoftBox pt={7} mb={3}>
+            <SoftTypography variant="h1" fontWeight="bold">
+              <LearnIconLine size="50px" /> Learn
+            </SoftTypography>
+          </SoftBox>
+          {/*Learn Cards*/}
+          <SoftBox mb={3}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} lg={8}>
+                <VideoCard
+                  image="https://drive.google.com/uc?export=download&id=1U6tEQfBzFyqIaKewxiG1ypIwSoEixPxf"
+                  buttonText="Watch Tutorial"
+                  title="Watch: 3D Tiny House Designer Basics Course"
+                  watchTime="Bite-sized videos to get you started!"
+                  action={{
+                    type: "external",
+                    route: "https://www.tinyeasy.co.nz/courses/3dthd-course-basics",
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} lg={2}>
+                <LearnBlogCard
+                  image="https://drive.google.com/uc?export=download&id=1HTYz1-O0enTIUvBttx-U-Mqkve_cZuZq"
+                  buttonText="Read Tutorial"
+                  title="Move Camera"
+                  description="Learn the basics on how to move around in the 3DTHD."
+                  action={{
+                    type: "external",
+                    route: "https://documentation.tinyeasy.co.nz/Designer%20Interface/Movement",
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} lg={2}>
+                <ExploreTutorialsPageItem />
+              </Grid>
+            </Grid>
+          </SoftBox>
         </SoftBox>
-        <SoftBox mb={3}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} lg={6}>
-              {/*Launch Designer Card*/}
-              <LaunchDesignerPageItem />
-            </Grid>
-            <Grid item xs={12} lg={6}>
-              {/*Welcome to trial card*/}
-              <LicenseReminderPageItem />
-            </Grid>
-          </Grid>
-        </SoftBox>
-        {/*Header 2*/}
-        <SoftBox pt={7} mb={3}>
-          <SoftTypography variant="h1" fontWeight="bold">
-            <LearnIconLine size="50px" /> Learn
-          </SoftTypography>
-        </SoftBox>
-        {/*Learn Cards*/}
-        <SoftBox mb={3}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} lg={8}>
-              <VideoCard
-                image="https://drive.google.com/uc?export=download&id=1U6tEQfBzFyqIaKewxiG1ypIwSoEixPxf"
-                buttonText="Watch Tutorial"
-                title="Watch: 3D Tiny House Designer Basics Course"
-                watchTime="Bite-sized videos to get you started!"
-                action={{ type: "external", route: "https://www.tinyeasy.co.nz/courses/3dthd-course-basics" }}
-              />
-            </Grid>
-            <Grid item xs={12} lg={2}>
-              <LearnBlogCard
-                image="https://drive.google.com/uc?export=download&id=1HTYz1-O0enTIUvBttx-U-Mqkve_cZuZq"
-                buttonText="Read Tutorial"
-                title="Move Camera"
-                description="Learn the basics on how to move around in the 3DTHD."
-                action={{ type: "external", route: "https://documentation.tinyeasy.co.nz/Designer%20Interface/Movement" }}
-              />
-            </Grid>
-            <Grid item xs={12} lg={2}>
-              <ExploreTutorialsPageItem/>
-            </Grid>
-          </Grid>
-        </SoftBox>
-      </SoftBox>
-      <Footer />
-    </DashboardLayout>
+        <Footer />
+      </DashboardLayout>
   );
 }
 

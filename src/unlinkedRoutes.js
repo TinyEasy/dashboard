@@ -8,36 +8,43 @@ import Loading from "layouts/loading";
 
 const unlinkedRoutes = [
   {
+    name: "Sign Up",
     key: "signup",
     route: "/signup",
     component: <SignUpTinyEasy />,
   },
   {
+    name: "Log In",
     key: "signin",
     route: "/signin",
     component: <SignInTinyEasy />,
   },
   {
+    name: "Set Up Account",
     key: "signupdetails",
     route: "/signup-details",
     component: <SignUpDetailsTinyEasy />,
   },
   {
+    name: "Reset Password",
     key: "resetPassword",
     route: "/reset-password",
     component: <ResetPassword />,
   },
   {
+    name: "Subscription Purchased",
     key: "subscriptionsuccess",
     route: "/subscription-success",
     component: <SubscriptionSuccess />,
   },
   {
+    name: "Launcher",
     key: "launcher",
     route: "/launcher",
     component: <Launcher />,
   },
   {
+    name: "Loading...",
     key: "loading",
     route: "/loading",
     component: <Loading />,
