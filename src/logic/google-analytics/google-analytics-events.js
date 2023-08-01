@@ -65,7 +65,7 @@ const ctaButtonClickEvent = (buttonName) =>{
   ReactGA4.event({
     category: "Button Click",
     action: "dashboard_cta__button_click",
-    label: {buttonName}
+    label: buttonName
   });
   console.log("CTA Button Event Fired");
 }
