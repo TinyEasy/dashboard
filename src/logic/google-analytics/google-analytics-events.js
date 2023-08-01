@@ -48,9 +48,26 @@ const personalPurchaseEvent = () => {
 const launchButtonClickEvent = () =>{
   ReactGA4.event({
     category: "Button Click",
-    action: "launch_designer_button_click",
+    action: "dashboard_launch_designer_button_click",
   });
   console.log("Launch Button Event Fired");
+}
+
+const bookDemoButtonClickEvent = () =>{
+  ReactGA4.event({
+    category: "Button Click",
+    action: "dashboard_book_demo_button_click",
+  });
+  console.log("Book Demo Button Event Fired");
+}
+
+const ctaButtonClickEvent = (buttonName) =>{
+  ReactGA4.event({
+    category: "Button Click",
+    action: "dashboard_cta__button_click",
+    label: {buttonName}
+  });
+  console.log("CTA Button Event Fired");
 }
 
 // const customEventFormat = () =>
@@ -64,7 +81,9 @@ const ga4Events = {
   eventSignup: signupEvent,
   eventBeginPersonalCheckout: beginPersonalCheckoutEvent,
   eventPersonalPurchase: personalPurchaseEvent,
-  eventLaunchButtonClick : launchButtonClickEvent
+  eventLaunchButtonClick : launchButtonClickEvent,
+  eventBookDemoButtonClick : bookDemoButtonClickEvent,
+  eventCtaButtonClick : ctaButtonClickEvent
 };
 
 export { ga4Events };

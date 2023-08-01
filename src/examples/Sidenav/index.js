@@ -35,6 +35,8 @@ import StarIcon from "examples/Icons/StarIcon";
 //Profile
 import ProfileDisplay from "examples/Items/ProfileDisplay/ProfileDisplay";
 
+import { ga4Events } from "logic/google-analytics/google-analytics-events";
+
 //Context
 import { UserAuth } from "context/AuthContext";
 
@@ -176,6 +178,7 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
               variant="gradient"
               color={color}
               fullWidth
+              onClick={() => ga4Events.eventCtaButtonClick("sidenav_top_cta")}
             >
               <StarIcon color="white" size="16px" />
               &nbsp; UPGRADE

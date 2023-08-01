@@ -12,7 +12,7 @@ import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 import SoftButton from "components/SoftButton";
 
-function TextImageButtonCard({ heading, body, image, action }) {
+function TextImageButtonCard({ heading, body, image, action, onClickAction }) {
   return (
     <Card sx={{ height: "100%" }}>
       <SoftBox p={4}>
@@ -33,13 +33,13 @@ function TextImageButtonCard({ heading, body, image, action }) {
               <SoftBox>
                 {action.type === "internal" ? (
                   <Link to={action.route}>
-                    <SoftButton variant="gradient" color="info" fullWidth>
+                    <SoftButton variant="gradient" color="info" fullWidth onClick={onClickAction}>
                       {action.label}
                     </SoftButton>
                   </Link>
                 ) : (
                   <MuiLink href={action.route} target="_blank" rel="noreferrer">
-                    <SoftButton variant="gradient" color="info" fullWidth>
+                    <SoftButton variant="gradient" color="info" fullWidth onClick={onClickAction}>
                       {action.label}
                     </SoftButton>
                   </MuiLink>
@@ -74,7 +74,7 @@ TextImageButtonCard.defaultProps = {
   image: "https://drive.google.com/uc?export=download&id=1MLiBHElbmCtM1CTNy4YvnEnxcSNtTGne",
   action: {
     type: "internal",
-    route: "/upgrade",
+    route: "/",
     text: "Label",
   },
 };
@@ -88,6 +88,7 @@ TextImageButtonCard.propTypes = {
     route: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
   }).isRequired,
+  onClickAction: PropTypes.func
 };
 
 export default TextImageButtonCard;

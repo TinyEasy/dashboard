@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 // react-router components
-import { useLocation, Link } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 
 // prop-types is a library for typechecking of props.
 import PropTypes from "prop-types";
@@ -15,8 +15,6 @@ import Icon from "@mui/material/Icon";
 
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
-import SoftButton from "components/SoftButton";
-import SpaceShip from "examples/Icons/SpaceShip";
 import LaunchDesignerButton from "examples/Items/Buttons/LaunchDesignerButton";
 
 // Soft UI Dashboard React examples
@@ -27,7 +25,6 @@ import {
   navbar,
   navbarContainer,
   navbarRow,
-  navbarIconButton,
   navbarMobileMenu,
 } from "examples/Navbars/DashboardNavbarTinyEasy/styles";
 
@@ -73,8 +70,6 @@ function DashboardNavbarTinyEasy({ absolute, light, isMini }) {
   }, [dispatch, fixedNavbar]);
 
   const handleMiniSidenav = () => setMiniSidenav(dispatch, !miniSidenav);
-  const handleConfiguratorOpen = () => setOpenConfigurator(dispatch, !openConfigurator);
-  const handleOpenMenu = (event) => setOpenMenu(event.currentTarget);
   const handleCloseMenu = () => setOpenMenu(false);
 
   // Render the notifications menu
@@ -106,20 +101,6 @@ function DashboardNavbarTinyEasy({ absolute, light, isMini }) {
           <SoftBox sx={(theme) => navbarRow(theme, { isMini })}>
             <SoftBox pr={1}>
               <LaunchDesignerButton/>
-              {/* <SoftButton
-                component="a"
-                target="_blank"
-                rel="noreferrer"
-                variant="gradient"
-                color="info"
-                fullWidth
-                onPress={() => navigation.navigate("/upgrade")}
-              >
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <SpaceShip color="white" size="16px" />
-                &nbsp; LAUNCH DESIGNER &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              </SoftButton> */}
-
             </SoftBox>
             <SoftBox color={light ? "white" : "inherit"}>
               <IconButton

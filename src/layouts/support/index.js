@@ -14,6 +14,8 @@ import Footer from "examples/Footer";
 //Icons
 import SupportIcon from "examples/Icons/SupportIcon";
 
+import { ga4Events } from "logic/google-analytics/google-analytics-events";
+
 function Support() {
   return (
     <DashboardLayout>
@@ -68,6 +70,7 @@ function Support() {
                 route: "https://www.tinyeasy.co.nz/book-your-demo",
                 label: "Book Call",
               }}
+              onClickAction={() => ga4Events.eventCtaButtonClick("support_book_call_cta")}
             />
           </Grid>
         </Grid>

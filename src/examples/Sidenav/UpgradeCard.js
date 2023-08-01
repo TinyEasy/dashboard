@@ -18,6 +18,8 @@ import { useSoftUIController } from "context";
 //Context
 import { UserAuth } from "context/AuthContext";
 
+import { ga4Events } from "logic/google-analytics/google-analytics-events";
+
 function UpgradeCard() {
   const [controller] = useSoftUIController();
   const { miniSidenav, sidenavColor } = controller;
@@ -81,12 +83,17 @@ function UpgradeCard() {
             {heading}
           </SoftTypography>
           <SoftBox mb={1.825}>
-              <SoftTypography variant="caption" color="white" fontWeight="medium">
-                {body}
-              </SoftTypography>
+            <SoftTypography variant="caption" color="white" fontWeight="medium">
+              {body}
+            </SoftTypography>
           </SoftBox>
           <ReactRouterLink to={ctaLink}>
-            <SoftButton size="small" color="white" fullWidth>
+            <SoftButton
+              size="small"
+              color="white"
+              fullWidth
+              onClick={() => ga4Events.eventCtaButtonClick("sidenav_bottom_cta")}
+            >
               {cta}
             </SoftButton>
           </ReactRouterLink>

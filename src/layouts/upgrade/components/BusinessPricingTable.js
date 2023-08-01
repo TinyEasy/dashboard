@@ -13,6 +13,9 @@ import SoftButton from "components/SoftButton";
 import TickmarkIcon from "examples/Icons/TickmarkIcon";
 import CallIcon from "examples/Icons/CallIcon";
 
+import { ga4Events } from "logic/google-analytics/google-analytics-events";
+
+
 function BusinessPricingTable() {
   return (
     <Card sx={{ height: "100%", backgroundColor: "#292D2F" }}>
@@ -116,6 +119,7 @@ function BusinessPricingTable() {
               rel="noreferrer"
             >
               <SoftButton
+                onClick={() => ga4Events.eventBookDemoButtonClick()}
                 component="a"
                 target="_blank"
                 rel="noreferrer"
