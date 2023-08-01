@@ -9,6 +9,8 @@ import SoftTypography from "components/SoftTypography";
 // Authentication layout components
 import TinyEasyAuthLayout from "layouts/authentication/components/TinyEasyAuthenticationLayout";
 
+import { ga4Events } from "logic/google-analytics/google-analytics-events";
+
 function SubscriptionSuccess() {
   const navigate = useNavigate();
   const [secondsRemaining, setSecondsRemaining] = useState(20);
@@ -24,6 +26,10 @@ function SubscriptionSuccess() {
 
     return () => clearTimeout(timer);
   }, [secondsRemaining, navigate]);
+
+  useEffect(() => {
+    ga4Events.eventPersonalPurchase();
+  }, []);
 
   const leftContent = (
     <SoftBox pt={2} pb={3} px={3}>
@@ -44,7 +50,8 @@ function SubscriptionSuccess() {
           Let us know if you have any questions; we&apos;d love to hear from you.
           <br />
           <br />
-          If you still have the 3D Tiny House Designer open in another tab, make sure to reload it through the dashboard.
+          If you still have the 3D Tiny House Designer open in another tab, make sure to reload it
+          through the dashboard.
           <br />
           <br />
           This page will redirect back to the Dashboard in the next few seconds while we get your

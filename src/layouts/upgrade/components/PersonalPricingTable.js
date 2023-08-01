@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 // @mui material components
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
@@ -15,7 +17,7 @@ import StarIcon from "examples/Icons/StarIcon";
 import { createCheckoutSession } from "logic/firebaseFunctions";
 import { UserAuth } from "context/AuthContext";
 
-import { useRef } from "react";
+import { ga4Events } from "logic/google-analytics/google-analytics-events";
 
 function PersonalPricingTable() {
   const { user } = UserAuth();
@@ -37,6 +39,7 @@ function PersonalPricingTable() {
         console.log(checkoutUrl);
         const formattedCheckoutUrl = checkoutUrl.replace(/^"(.*)"$/, "$1");
         console.log(formattedCheckoutUrl);
+        ga4Events.eventBeginPersonalCheckout();
         window.open(formattedCheckoutUrl, "_blank");
       } catch (error) {
         console.log(error);

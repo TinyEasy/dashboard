@@ -21,6 +21,8 @@ import { checkError } from "logic/authenticationResponseMessages";
 import { createMailchimpSubscription } from "logic/firebaseFunctions";
 import { getFirstName } from "logic/helperFunctions";
 
+import { ga4Events } from "logic/google-analytics/google-analytics-events";
+
 function SignUpTinyEasy() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,9 +35,9 @@ function SignUpTinyEasy() {
   const handleSignUp = async (event) => {
     event.preventDefault();
     setError("");
-
     try {
       await createUser(email, password, firstName);
+      ga4Events.eventSignup();
       navigate("/signup-details");
       await handleMailchimpSubscription(email, firstName);
     } catch (event) {
@@ -49,6 +51,7 @@ function SignUpTinyEasy() {
     try {
       const { user, isNewUser } = await googleSignIn();
       if (isNewUser) {
+        ga4Events.eventSignup();
         navigate("/signup-details"); // Redirect to the questionnaire for new users
         console.log("signed in new user");
         let firstName = "-";
@@ -57,6 +60,7 @@ function SignUpTinyEasy() {
         }
         await handleMailchimpSubscription(user.email, firstName);
       } else {
+        ga4Events.eventLogin();
         navigate("/loading"); // Redirect to the loading page for returning users
       }
     } catch (error) {

@@ -37,8 +37,8 @@ function SignInTinyEasy() {
 
     try {
       await signIn(email, password);
-      navigate("/loading");
       ga4Events.eventLogin();
+      navigate("/loading");
     } catch (event) {
       const { isError, errorMessage } = checkError(event);
       setError(errorMessage);
@@ -49,6 +49,7 @@ function SignInTinyEasy() {
     try {
       const { user, isNewUser } = await googleSignIn();
       if (isNewUser) {
+        ga4Events.eventSignup();
         navigate("/signup-details"); // Redirect to the questionnaire for new users
         console.log("signed in new user");
         let firstName = "-";
@@ -57,9 +58,9 @@ function SignInTinyEasy() {
         }
         await handleMailchimpSubscription(user.email, firstName);
       } else {
+        ga4Events.eventLogin();
         navigate("/loading"); // Redirect to the loading page for returning users
       }
-      ga4Events.eventLogin();
     } catch (error) {
       const { isError, errorMessage } = checkError(error);
       console.log(error.message);
