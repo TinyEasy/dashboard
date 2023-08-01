@@ -1,15 +1,10 @@
 import SpaceShip from "examples/Icons/SpaceShip";
 import SoftButton from "components/SoftButton";
-// import { UserAuth } from "context/AuthContext";
+import { ga4Events } from "logic/google-analytics/google-analytics-events";
 
 function LaunchDesignerButton() {
-  // const { user } = UserAuth();
-  // const accessToken = user.uid;
-
   const handleOpenNewTab = () => {
-    // let queryString = "?id=";
-    // if (accessToken) queryString = queryString + accessToken;
-    // const url = `/launcher${queryString}`;
+    ga4Events.eventLaunchButtonClick();
     window.open("/launcher", "_blank");
   };
 
