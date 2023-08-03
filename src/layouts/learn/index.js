@@ -41,7 +41,7 @@ function Learn() {
                 watchTime="Follow bite-sized videos!"
                 action={{
                   type: "external",
-                  route: "https://www.tinyeasy.co.nz/courses/3dthd-course-basics",
+                  route: "https://www.tinyeasy.co.nz/3dthd-course-basics",
                 }}
               />
             </Grid>
@@ -63,73 +63,73 @@ function Learn() {
             <Grid item xs={12} lg={2}>
               <LearnBlogCard
                 image="https://drive.google.com/uc?export=download&id=1142_j1hDzqIr7YLTgygK_R3bkBEvfg_F"
-                buttonText="Read Tutorial"
+                buttonText="Watch Tutorial"
                 title="Designer Interface"
                 description="All tutorials for the interface. Learn which buttons do what!"
                 action={{
                   type: "external",
-                  route: "https://documentation.tinyeasy.co.nz/category/designer-interface",
+                  route: "https://www.tinyeasy.co.nz/courses/3dthd-basics/chapter-2-1-the-interface",
                 }}
               />
             </Grid>
             <Grid item xs={12} lg={2}>
               <LearnBlogCard
                 image="https://drive.google.com/uc?export=download&id=1HTYz1-O0enTIUvBttx-U-Mqkve_cZuZq"
-                buttonText="Read Tutorial"
+                buttonText="Watch Tutorial"
                 title="Move Camera"
                 description="Learn the basics on how to move around in the 3DTHD."
                 action={{
                   type: "external",
-                  route: "https://documentation.tinyeasy.co.nz/Designer%20Interface/Movement",
+                  route: "https://www.tinyeasy.co.nz/courses/3dthd-basics/chapter-2-3-moving-the-camera",
                 }}
               />
             </Grid>
             <Grid item xs={12} lg={2}>
               <LearnBlogCard
                 image="https://drive.google.com/uc?export=download&id=121Q2o45NWdwx-xPNHNOTF9tnuMRPDMBm"
-                buttonText="Read Tutorial"
+                buttonText="Watch Tutorial"
                 title="Move Objects"
                 description="Learn how to place and move objects."
                 action={{
                   type: "external",
                   route:
-                    "https://documentation.tinyeasy.co.nz/Designer%20Interface/Placing-Moving-Objects",
+                    "https://www.tinyeasy.co.nz/courses/3dthd-basics/chapter-2-6-moving-objects",
                 }}
               />
             </Grid>
             <Grid item xs={12} lg={2}>
               <LearnBlogCard
                 image="https://drive.google.com/uc?export=download&id=12jy80fFBWQnvW8LYou5Cf2_cNGRL7bdS"
-                buttonText="Read Tutorial"
+                buttonText="Watch Tutorial"
                 title="Create Exterior"
-                description="All tutorials on how to modify your tiny home's exterior."
+                description="How to modify your tiny home's exterior."
                 action={{
                   type: "external",
-                  route: "https://documentation.tinyeasy.co.nz/category/tiny-house-shell-tools",
+                  route: "https://www.tinyeasy.co.nz/courses/3dthd-basics/chapter-2-7-modify-tiny-house-size-trailer",
                 }}
               />
             </Grid>
             <Grid item xs={12} lg={2}>
               <LearnBlogCard
                 image="https://drive.google.com/uc?export=download&id=1z5aJ7ZxIFbco97OXPJKrnxpR56dcLlIT"
-                buttonText="Read Tutorial"
+                buttonText="Watch Tutorial"
                 title="Design Interior"
-                description="All tutorials on how to use basic furniture components."
+                description="How to use basic furniture components."
                 action={{
                   type: "external",
-                  route: "https://documentation.tinyeasy.co.nz/category/furniture-tools",
+                  route: "https://www.tinyeasy.co.nz/courses/3dthd-basics/chapter-2-14-add-cabinets-furniture",
                 }}
               />
             </Grid>
             <Grid item xs={12} lg={2}>
               <LearnBlogCard
                 image="https://drive.google.com/uc?export=download&id=1CVJikcuOyDNHwRm1gvd29S6yI9QqunQ9"
-                buttonText="Read Tutorial"
+                buttonText="Watch Tutorial"
                 title="Apply Materials"
                 description="Learn how to style your tiny home with materials."
                 action={{
                   type: "external",
-                  route: "https://documentation.tinyeasy.co.nz/category/materials",
+                  route: "https://www.tinyeasy.co.nz/courses/3dthd-basics/chapter-2-15-modify-materials",
                 }}
               />
             </Grid>

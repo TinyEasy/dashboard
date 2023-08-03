@@ -71,19 +71,19 @@ function Home() {
                   watchTime="Bite-sized videos to get you started!"
                   action={{
                     type: "external",
-                    route: "https://www.tinyeasy.co.nz/courses/3dthd-course-basics",
+                    route: "https://www.tinyeasy.co.nz/3dthd-course-basics",
                   }}
                 />
               </Grid>
               <Grid item xs={12} lg={2}>
                 <LearnBlogCard
                   image="https://drive.google.com/uc?export=download&id=1HTYz1-O0enTIUvBttx-U-Mqkve_cZuZq"
-                  buttonText="Read Tutorial"
+                  buttonText="Watch Tutorial"
                   title="Move Camera"
                   description="Learn the basics on how to move around in the 3DTHD."
                   action={{
                     type: "external",
-                    route: "https://documentation.tinyeasy.co.nz/Designer%20Interface/Movement",
+                    route: "https://www.tinyeasy.co.nz/courses/3dthd-basics/chapter-2-3-moving-the-camera",
                   }}
                 />
               </Grid>

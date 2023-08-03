@@ -44,7 +44,7 @@ function Support() {
               image="https://drive.google.com/uc?export=download&id=1xrinXXLc1j1HJkGAK1H8MWy9UAY6Ayls"
               action={{
                 type: "external",
-                route: "https://billing.stripe.com/p/login/test_bIY6qB89f64E8bC288",
+                route: "https://billing.stripe.com/p/login/fZecO3cR79Cs9vW3cc",
                 label: "View Account",
               }}
             />

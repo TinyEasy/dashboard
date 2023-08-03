@@ -36,7 +36,7 @@ function Support() {
               image="https://drive.google.com/uc?export=download&id=1MLiBHElbmCtM1CTNy4YvnEnxcSNtTGne"
               action={{
                 type: "external",
-                route: "https://documentation.tinyeasy.co.nz/",
+                route: "https://www.tinyeasy.co.nz/faq",
                 label: "Read F.A.Q.",
               }}
             />

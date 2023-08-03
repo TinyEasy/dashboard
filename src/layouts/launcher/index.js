@@ -22,7 +22,7 @@ function Launcher() {
 
   const { user } = UserAuth();
   const awsUrl =
-    "https://3dthd-launcher.s3.ap-southeast-2.amazonaws.com/Build5B-Update/index.html";
+    "https://s3.ap-southeast-2.amazonaws.com/launcher.tinyeasy.co.nz/index.html";
   let id = "ID";
   if (user && user.uid) {
     id = user.uid;
