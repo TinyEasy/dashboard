@@ -21,7 +21,7 @@ import { ga4Events } from "logic/google-analytics/google-analytics-events";
 
 function PersonalPricingTable() {
   const { user } = UserAuth();
-  let priceId = "price_1NJRYjGwghLOOtVXKWSGOrPw";
+  let priceId = "price_1NapQTGwghLOOtVXkj97Occ0";
   const anchorRef = useRef(null);
 
   async function handlePurchase() {
