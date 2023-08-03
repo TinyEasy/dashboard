@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 // react-router-dom components
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
@@ -9,22 +9,21 @@ import SoftTypography from "components/SoftTypography";
 import Grid from "@mui/material/Grid";
 import PageLayout from "examples/LayoutContainers/PageLayout";
 
-//Authentication logic
-import { UserAuth } from "context/AuthContext";
-import loadingGif from "./3DTHD-Loading.gif";
-
-function Loading() {
+function LaunchError() {
   const navigate = useNavigate();
-  const { license } = UserAuth();
+  const [secondsRemaining, setSecondsRemaining] = useState(10);
 
-  if (
-    license === "trial" ||
-    license === "personal" ||
-    license === "expired" ||
-    license === "business"
-  ) {
-    navigate("/home");
-  }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (secondsRemaining > 1) {
+        setSecondsRemaining((seconds) => seconds - 1);
+      } else {
+        navigate("/home");
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [secondsRemaining, navigate]);
 
   return (
     <PageLayout background="white">
@@ -42,15 +41,12 @@ function Loading() {
             <SoftBox pt={2} pb={3} px={3}>
               {/* Headline */}
               <SoftBox mb={1}>
-                <img
-                  src={loadingGif}
-                  alt="Animated Logo"
-                  style={{ width: "75%", height: "auto" }}
-                />
-              </SoftBox>
-              <SoftBox mb={1}>
                 <SoftTypography variant="body1">
-                  👋😄 Oh hi there! Just getting things ready for you. Hold on!
+                  👋 Hey! Your operating system is not compatible. Switch to a desktop or laptop
+                  device running Windows, Mac, or Linux.
+                  <br />
+                  <br />
+                  Redirecting back to the Dashboard in {secondsRemaining} seconds...
                 </SoftTypography>
               </SoftBox>
             </SoftBox>
@@ -61,4 +57,4 @@ function Loading() {
   );
 }
 
-export default Loading;
+export default LaunchError;

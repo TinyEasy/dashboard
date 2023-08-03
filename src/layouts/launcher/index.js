@@ -37,7 +37,7 @@ function Launcher() {
   };
 
   // Check if the platform is compatible (Windows, Mac, or Linux)
-  const isCompatiblePlatform = ["Win32", "MacIntel", "Linux x86_64"].includes(navigator.platform);
+  const isCompatiblePlatform = ["Win64","Win32", "Win16","Windows", "Win","MacIntel", "Mac","Linux"].includes(navigator.platform);
 
   if (!isCompatiblePlatform) {
     return (

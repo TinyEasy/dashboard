@@ -5,6 +5,7 @@ import ResetPassword from "layouts/authentication/reset-password";
 import SubscriptionSuccess from "layouts/subscription-success";
 import Launcher from "layouts/launcher";
 import Loading from "layouts/loading";
+import LaunchError from "layouts/launch-error";
 
 const unlinkedRoutes = [
   {
@@ -42,6 +43,12 @@ const unlinkedRoutes = [
     key: "launcher",
     route: "/launcher",
     component: <Launcher />,
+  },
+  {
+    name: "Launch Error",
+    key: "launcherror",
+    route: "/launch-error",
+    component: <LaunchError />,
   },
   {
     name: "Loading...",
