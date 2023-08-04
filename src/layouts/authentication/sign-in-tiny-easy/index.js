@@ -52,15 +52,15 @@ function SignInTinyEasy() {
         ga4Events.eventSignup();
         navigate("/signup-details"); // Redirect to the questionnaire for new users
         console.log("signed in new user");
-        let firstName = "-";
-        if (user && user.displayName) {
-          firstName = getFirstName(user.displayName);
-        }
-        await handleMailchimpSubscription(user.email, firstName);
       } else {
         ga4Events.eventLogin();
         navigate("/loading"); // Redirect to the loading page for returning users
       }
+      let firstName = "-";
+      if (user && user.displayName) {
+        firstName = getFirstName(user.displayName);
+      }
+      await handleMailchimpSubscription(user.email, firstName);
     } catch (error) {
       const { isError, errorMessage } = checkError(error);
       console.log(error.message);
