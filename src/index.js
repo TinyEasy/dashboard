@@ -8,7 +8,7 @@ import { SoftUIControllerProvider } from "context";
 import { AuthContextProvider } from "context/AuthContext";
 
 import ReactGA4 from "react-ga4";
-ReactGA4.initialize("G-6HDJEF4FJX");
+ReactGA4.initialize("G-W1K1NP9K4T");
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
