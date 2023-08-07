@@ -17,7 +17,7 @@ function LaunchDesignerButton() {
   }
   let url = awsUrl + "?id=" + id;
 
-  const isCompatiblePlatform = ["Win64","Win32", "Win16","Windows", "Win","MacIntel", "Mac","Linux"].includes(navigator.platform);
+  const isCompatiblePlatform = ["ChromeOS", "Chrome","Win64","Win32", "Win16","Windows", "Win","MacIntel", "Mac","Linux"].includes(navigator.platform);
 
   const handleOpenNewTab = () => {
     ga4Events.eventLaunchButtonClick();
