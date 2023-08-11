@@ -15,7 +15,7 @@ import TinyEasyAuthLayout from "../components/TinyEasyAuthenticationLayout";
 import Separator from "layouts/authentication/components/Separator";
 
 import { checkError } from "logic/authenticationResponseMessages";
-import { createMailchimpSubscription } from "logic/firebaseFunctions";
+import { createMailchimpSubscription} from "logic/firebaseFunctions";
 import { getFirstName } from "logic/helperFunctions";
 
 //Authentication logic
@@ -30,13 +30,15 @@ function SignInTinyEasy() {
   const [password, setPassword] = useState();
   const [error, setError] = useState();
 
+  //Function for Log In Form
   const handleLogIn = async (event) => {
     event.preventDefault();
     setError("");
     console.log("Starting log in");
 
     try {
-      await signIn(email, password);
+      const user = await signIn(email, password);
+      await ga4Events.userSetID(user.email, user.accessToken);
       ga4Events.eventLogin();
       navigate("/loading");
     } catch (event) {
@@ -45,6 +47,7 @@ function SignInTinyEasy() {
     }
   };
 
+  //Function for Log In with Google
   const handleGoogleLogIn = async () => {
     try {
       const { user, isNewUser } = await googleSignIn();
@@ -56,6 +59,7 @@ function SignInTinyEasy() {
         ga4Events.eventLogin();
         navigate("/loading"); // Redirect to the loading page for returning users
       }
+      await ga4Events.userSetID(user.email, user.accessToken);
       let firstName = "-";
       if (user && user.displayName) {
         firstName = getFirstName(user.displayName);

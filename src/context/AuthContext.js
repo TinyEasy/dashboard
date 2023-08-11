@@ -21,45 +21,56 @@ export const AuthContextProvider = ({ children }) => {
   const [license, setLicense] = useState({}); //Object to provide license information to project.
   const [licenseExpiry, setLicenseExpiry] = useState(0);
 
-  const createUser = async (email, password, name) => {
-    console.log("Creating new user:");
-    console.log(email);
-    console.log(name);
-
-    try {
-      // Create the user with email and password using Firebase Auth
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-
-      if (!userCredential || !userCredential.user) {
-        // Handle the case where the userCredential or user object is not returned properly
-        throw new Error("Authentication failed. User credential not available.");
-      }
-
-      setUser(userCredential.user);
-
-      // Introduce a delay of 15 seconds
-      await new Promise((resolve) => setTimeout(resolve, 15000));
-
-      // Get the user's token from the userCredential
-      const token = await userCredential.user.getIdToken();
-
-      // Call the setFullName function to update the user's name on Firestore
-      await setFullName(email, token, name);
-      console.log("User created successfully!");
-      console.log(userCredential);
+  const createUser = (email, password, name) => {
+    return new Promise(async (resolve, reject) => {
+      console.log("Creating new user:");
       console.log(email);
       console.log(name);
 
-      return userCredential;
-    } catch (error) {
-      // Handle any errors that occur during the sign-up process
-      console.error("Error creating user:", error);
-      throw error; // Propagate the error to the calling function if needed
-    }
+      try {
+        // Create the user with email and password using Firebase Auth
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+
+        if (!userCredential || !userCredential.user) {
+          // Handle the case where the userCredential or user object is not returned properly
+          throw new Error("Authentication failed. User credential not available.");
+        }
+
+        setUser(userCredential.user);
+
+        // Introduce a delay of 15 seconds
+        await new Promise((resolve) => setTimeout(resolve, 15000));
+
+        // Get the user's token from the userCredential
+        const token = await userCredential.user.getIdToken();
+
+        // Call the setFullName function to update the user's name on Firestore
+        await setFullName(email, token, name);
+        console.log("User created successfully!");
+        console.log(userCredential);
+        console.log(email);
+        console.log(name);
+
+        resolve(userCredential.user);
+      } catch (error) {
+        // Handle any errors that occur during the sign-up process
+        console.error("Error creating user:", error);
+        reject(error); // Reject the promise with the error
+      }
+    });
   };
 
   const signIn = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password);
+    return new Promise((resolve, reject) => {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          resolve(user);
+        })
+        .catch((error) => {
+          reject(error);
+        });
+    });
   };
 
   const googleSignIn = () => {

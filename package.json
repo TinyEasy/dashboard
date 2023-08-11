@@ -23,6 +23,7 @@
     "@testing-library/user-event": "14.4.3",
     "chart.js": "3.9.1",
     "chroma-js": "2.4.2",
+    "crypto-browserify": "^3.12.0",
     "firebase": "^9.22.2",
     "firebaseui": "^6.0.2",
     "node-fetch": "^3.3.1",

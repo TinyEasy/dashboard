@@ -69,6 +69,16 @@ export async function createMailchimpSubscription(email, firstName, tags)
   return await triggerFirebaseFunction(null, functionURL, requestData);
 }
 
+export async function createUserHash(email, token)
+{
+  const requestData = {
+    email: email,
+  };
+
+  const functionURL = 'https://us-central1-d-tiny-house-designer.cloudfunctions.net/createAnalyticsUserHash';
+  return await triggerFirebaseFunction(token, functionURL, requestData);
+}
+
 //---------------------------------------------------------------
 
 async function triggerFirebaseFunction(idToken, functionUrl, requestData) {

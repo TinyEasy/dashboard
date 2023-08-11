@@ -1,4 +1,14 @@
 import ReactGA4 from "react-ga4";
+import {createUserHash } from "logic/firebaseFunctions";
+
+const handleSetUserID = async (email, token) => {
+  try {
+    const hash = await createUserHash(email, token);
+    ReactGA4.set({ userId: hash });
+  } catch (error) {
+    console.log("Set user hash error: " + error);
+  }
+};
 
 const loginEvent = () => {
   ReactGA4.event("login", { method: "Google" });
@@ -83,7 +93,8 @@ const ga4Events = {
   eventPersonalPurchase: personalPurchaseEvent,
   eventLaunchButtonClick : launchButtonClickEvent,
   eventBookDemoButtonClick : bookDemoButtonClickEvent,
-  eventCtaButtonClick : ctaButtonClickEvent
+  eventCtaButtonClick : ctaButtonClickEvent, 
+  userSetID : handleSetUserID
 };
 
 export { ga4Events };

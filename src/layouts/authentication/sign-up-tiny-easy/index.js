@@ -36,10 +36,12 @@ function SignUpTinyEasy() {
     event.preventDefault();
     setError("");
     try {
-      await createUser(email, password, firstName);
+      const user = await createUser(email, password, firstName);
       ga4Events.eventSignup();
       navigate("/signup-details");
+      await ga4Events.userSetID(user.email, user.accessToken);
       await handleMailchimpSubscription(email, firstName);
+      
     } catch (event) {
       const { isError, errorMessage } = checkError(event);
       console.log(event.message);
@@ -58,6 +60,7 @@ function SignUpTinyEasy() {
         navigate("/loading"); // Redirect to the loading page for returning users
       }
       console.log("signed in new user");
+      await ga4Events.userSetID(user.email, user.accessToken);
       let firstName = "-";
       if (user && user.displayName) {
         firstName = getFirstName(user.displayName);
