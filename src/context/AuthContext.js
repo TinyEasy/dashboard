@@ -13,6 +13,7 @@ import {
 
 import { auth } from "../logic/firebase";
 import { checkLicenseVersion, checkLicenseDaysLeft, setFullName } from "logic/firebaseFunctions";
+import { ga4Events } from "logic/google-analytics/google-analytics-events";
 
 const UserContext = createContext();
 
@@ -130,6 +131,8 @@ export const AuthContextProvider = ({ children }) => {
         const licenseVersion = await checkLicenseVersion(userData.email, userData.accessToken);
         console.log("License version: " + licenseVersion);
         setLicense(licenseVersion);
+        ga4Events.userSetLicense(licenseVersion);
+
       } catch (error) {
         console.log("Checking License Failed");
         console.log(error);

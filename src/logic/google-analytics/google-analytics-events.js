@@ -10,6 +10,12 @@ const handleSetUserID = async (email, token) => {
   }
 };
 
+const handleSetUserLicense = (license) => {
+  ReactGA4.gtag("set", "user_properties", {
+    account_license: license,
+  });
+}
+
 const loginEvent = () => {
   ReactGA4.event("login", { method: "Google" });
   console.log("Login Event Fired");
@@ -80,12 +86,6 @@ const ctaButtonClickEvent = (buttonName) =>{
   console.log("CTA Button Event Fired");
 }
 
-// const customEventFormat = () =>
-//   ReactGA4.event({
-//     action: "Custom Action",
-//     category: "Custom Category",
-//   });
-
 const ga4Events = {
   eventLogin: loginEvent,
   eventSignup: signupEvent,
@@ -94,7 +94,8 @@ const ga4Events = {
   eventLaunchButtonClick : launchButtonClickEvent,
   eventBookDemoButtonClick : bookDemoButtonClickEvent,
   eventCtaButtonClick : ctaButtonClickEvent, 
-  userSetID : handleSetUserID
+  userSetID : handleSetUserID,
+  userSetLicense : handleSetUserLicense
 };
 
 export { ga4Events };
