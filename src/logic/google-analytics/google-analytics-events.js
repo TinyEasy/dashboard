@@ -1,5 +1,7 @@
 import ReactGA4 from "react-ga4";
-import {createUserHash } from "logic/firebaseFunctions";
+import { createUserHash } from "logic/firebaseFunctions";
+
+//----------Account Events----------//
 
 const handleSetUserID = async (email, token) => {
   try {
@@ -14,7 +16,7 @@ const handleSetUserLicense = (license) => {
   ReactGA4.gtag("set", "user_properties", {
     account_license: license,
   });
-}
+};
 
 const loginEvent = () => {
   ReactGA4.event("login", { method: "Google" });
@@ -25,6 +27,8 @@ const signupEvent = () => {
   ReactGA4.event("sign_up", { method: "Google" });
   console.log("Sign Up Event Fired");
 };
+
+//----------Checkout Events----------//
 
 const beginPersonalCheckoutEvent = () => {
   ReactGA4.event("begin_checkout", {
@@ -78,42 +82,64 @@ const personalPurchaseEvent = () => {
   console.log("Personal Purchase Event Fired");
 };
 
-const launchButtonClickEvent = () =>{
+//----------Survey Events----------//
+const surveyResponseEvent = (question, response) => {
+  ReactGA4.event({
+    category: question,
+    action: "Survey Response",
+    label: response,
+  });
+  console.log("Survey Response Event Fired - Q: " + question, "  R: " + response);
+};
+
+//----------Button Click Events----------//
+
+const launchButtonClickEvent = () => {
   ReactGA4.event({
     category: "Button Click",
     action: "dashboard_launch_designer_button_click",
   });
   console.log("Launch Button Event Fired");
-}
+};
 
-const bookDemoButtonClickEvent = () =>{
+const bookDemoButtonClickEvent = () => {
   ReactGA4.event({
     category: "Button Click",
     action: "dashboard_book_demo_button_click",
   });
   console.log("Book Demo Button Event Fired");
-}
+};
 
-const ctaButtonClickEvent = (buttonName) =>{
+const ctaButtonClickEvent = (buttonName) => {
   ReactGA4.event({
     category: "Button Click",
     action: "dashboard_cta_button_click",
-    label: buttonName
+    label: buttonName,
   });
   console.log("CTA Button Event Fired");
-}
+};
+
+//----------Exporting All Events----------//
 
 const ga4Events = {
+  //Account Events
+  userSetID: handleSetUserID,
+  userSetLicense: handleSetUserLicense,
   eventLogin: loginEvent,
   eventSignup: signupEvent,
+
+  //Checkout Events
   eventBeginPersonalCheckout: beginPersonalCheckoutEvent,
   eventBeginPersonalYearlyCheckout: beginPersonalYearlyCheckoutEvent,
   eventPersonalPurchase: personalPurchaseEvent,
-  eventLaunchButtonClick : launchButtonClickEvent,
-  eventBookDemoButtonClick : bookDemoButtonClickEvent,
-  eventCtaButtonClick : ctaButtonClickEvent, 
-  userSetID : handleSetUserID,
-  userSetLicense : handleSetUserLicense
+
+  //Survey Events
+  eventSurveyResponse: surveyResponseEvent,
+
+  //Button Click Events
+  eventLaunchButtonClick: launchButtonClickEvent,
+  eventBookDemoButtonClick: bookDemoButtonClickEvent,
+  eventCtaButtonClick: ctaButtonClickEvent,
 };
 
 export { ga4Events };
