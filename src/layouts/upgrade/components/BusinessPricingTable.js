@@ -15,7 +15,6 @@ import CallIcon from "examples/Icons/CallIcon";
 
 import { ga4Events } from "logic/google-analytics/google-analytics-events";
 
-
 function BusinessPricingTable() {
   return (
     <Card sx={{ height: "100%", backgroundColor: "#292D2F" }}>
@@ -49,66 +48,91 @@ function BusinessPricingTable() {
         <Divider light="true" />
         {/* Features */}
         <SoftBox mb={4}>
-        <Grid container spacing={3}>
+          <Grid container spacing={3}>
             {/* Left Row */}
-          <Grid item xs={12} lg={5}>
-            <SoftBox>
-              <div style={{ display: "flex", alignItems: "flex-start" }}>
-                <TickmarkIcon size="18px" color="light" />
-                <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
-                  &nbsp; Unlimited Design Slots
-                </SoftTypography>
-              </div>
-              <div style={{ display: "flex", alignItems: "flex-start" }}>
-                <TickmarkIcon size="18px" color="light" />
-                <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
-                  &nbsp; Business-Use License
-                </SoftTypography>
-              </div>
-              <div style={{ display: "flex", alignItems: "flex-start" }}>
-                <TickmarkIcon size="18px" color="light" />
-                <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
-                  &nbsp; Advanced Plan Export
-                </SoftTypography>
-              </div>
-              <div style={{ display: "flex", alignItems: "flex-start" }}>
-                <TickmarkIcon size="18px" color="light" />
-                <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
-                  &nbsp; Advanced Design Tools
-                </SoftTypography>
-              </div>
-            </SoftBox>
+            <Grid item xs={12} lg={4}>
+              <SoftBox>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
+                  <TickmarkIcon size="18px" color="light" />
+                  <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
+                    &nbsp; Unlimited Design Slots
+                  </SoftTypography>
+                </div>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
+                  <TickmarkIcon size="18px" color="light" />
+                  <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
+                    &nbsp; Business-Use License
+                  </SoftTypography>
+                </div>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
+                  <TickmarkIcon size="18px" color="light" />
+                  <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
+                    &nbsp; Advanced Plan Export
+                  </SoftTypography>
+                </div>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
+                  <TickmarkIcon size="18px" color="light" />
+                  <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
+                    &nbsp; Advanced Design Tools
+                  </SoftTypography>
+                </div>
+              </SoftBox>
+            </Grid>
+
+            {/* Middle Row */}
+            <Grid item xs={12} lg={4}>
+              <SoftBox>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
+                  <TickmarkIcon size="18px" color="light" />
+                  <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
+                    &nbsp; Advanced Cabinetry
+                  </SoftTypography>
+                </div>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
+                  <TickmarkIcon size="18px" color="light" />
+                  <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
+                    &nbsp; Electrical Tool
+                  </SoftTypography>
+                </div>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
+                  <TickmarkIcon size="18px" color="light" />
+                  <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
+                    &nbsp; Deck/Terrace Tool
+                  </SoftTypography>
+                </div>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
+                  <TickmarkIcon size="18px" color="light" />
+                  <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
+                    &nbsp; Render Tool (Early Access)
+                  </SoftTypography>
+                </div>
+              </SoftBox>
+            </Grid>
+
+            {/* Right Row */}
+            <Grid item xs={12} lg={4}>
+              <SoftBox>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
+                  <TickmarkIcon size="18px" color="light" />
+                  <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
+                    &nbsp; Take Off Tool (Coming Soon)
+                  </SoftTypography>
+                </div>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
+                  <TickmarkIcon size="18px" color="light" />
+                  <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
+                    &nbsp; Sketch Up Export
+                  </SoftTypography>
+                </div>
+                <div style={{ display: "flex", alignItems: "flex-start" }}>
+                  <TickmarkIcon size="18px" color="light" />
+                  <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
+                    &nbsp; 1-On-1 Support
+                  </SoftTypography>
+                </div>
+              </SoftBox>
+            </Grid>
           </Grid>
-          {/* Right Row */}
-          <Grid item xs={12} lg={7}>
-            <SoftBox>
-              <div style={{ display: "flex", alignItems: "flex-start" }}>
-                <TickmarkIcon size="18px" color="light" />
-                <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
-                  &nbsp; Advanced Cabinetry
-                </SoftTypography>
-              </div>
-              <div style={{ display: "flex", alignItems: "flex-start" }}>
-                <TickmarkIcon size="18px" color="light" />
-                <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
-                  &nbsp; Electrical Tool
-                </SoftTypography>
-              </div>
-              <div style={{ display: "flex", alignItems: "flex-start" }}>
-                <TickmarkIcon size="18px" color="light" />
-                <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
-                  &nbsp; Deck/Terrace Tool
-                </SoftTypography>
-              </div>
-              <div style={{ display: "flex", alignItems: "flex-start" }}>
-                <TickmarkIcon size="18px" color="light" />
-                <SoftTypography variant="body2" fontWeight="bold" gutterBottom color="light">
-                  &nbsp; 1-On-1 Support
-                </SoftTypography>
-              </div>
-            </SoftBox>
-          </Grid>
-        </Grid>
         </SoftBox>
         {/*Upgrade Button*/}
         <Grid container spacing={3}>

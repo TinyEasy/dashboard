@@ -28,7 +28,7 @@ function ProfileDisplay({ profileSize }) {
     case "trial":
       licenseText = "Free Trial";
       licenseColor = "info";
-      licenseBorderColor = "rgb(254, 115, 76)";
+      licenseBorderColor = "rgb(239, 117, 38)";
       break;
     case "expired":
       licenseText = "Expired License";
@@ -38,7 +38,7 @@ function ProfileDisplay({ profileSize }) {
     case "personal":
       licenseText = "Personal";
       licenseColor = "info";
-      licenseBorderColor = "rgb(254, 115, 76)";
+      licenseBorderColor = "rgb(239, 117, 38)";
       break;
     case "business":
       licenseText = "Business";

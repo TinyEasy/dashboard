@@ -131,72 +131,73 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
 
   return (
     <SidenavRoot {...rest} variant="permanent" ownerState={{ transparentSidenav, miniSidenav }}>
-      {/* Header Image */}
-      <SoftBox pt={3} pb={1} px={4} textAlign="center">
-        <SoftBox
-          display={{ xs: "block", xl: "none" }}
-          position="absolute"
-          top={0}
-          right={0}
-          p={1.625}
-          onClick={closeSidenav}
-          sx={{ cursor: "pointer" }}
-        >
-          <SoftTypography variant="h6" color="secondary">
-            <Icon sx={{ fontWeight: "bold" }}>close</Icon>
-          </SoftTypography>
-        </SoftBox>
-        <SoftBox component={NavLink} to="/" display="flex" alignItems="center">
-          {brand && <SoftBox component="img" src={brand} alt="Tiny Easy Logo" width="2rem" />}
+      
+        {/* Header Image */}
+        <SoftBox pt={3} pb={1} px={4} textAlign="center">
           <SoftBox
-            width={!brandName && "100%"}
-            sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}
+            display={{ xs: "block", xl: "none" }}
+            position="absolute"
+            top={0}
+            right={0}
+            p={1.625}
+            onClick={closeSidenav}
+            sx={{ cursor: "pointer" }}
           >
-            <SoftTypography component="h6" variant="button" fontWeight="medium">
-              &nbsp;&nbsp;{brandName}
+            <SoftTypography variant="h6" color="secondary">
+              <Icon sx={{ fontWeight: "bold" }}>close</Icon>
             </SoftTypography>
           </SoftBox>
-        </SoftBox>
-      </SoftBox>
-      {/* Divider 1 */}
-      <SoftBox mx={2}>
-        <Divider />
-      </SoftBox>
-      {/* Profile Display */}
-      <SoftBox mx={2}>
-        <ProfileDisplay profileSize="lg" />
-      </SoftBox>
-      {/* Upgrade button */}
-      {displayUpgradeButton && (
-      <SoftBox mt={2} mx={2}>
-        <SoftBox>
-          <ReactRouterLink to={"/upgrade"}>
-            <SoftButton
-              component="a"
-              target="_blank"
-              rel="noreferrer"
-              variant="gradient"
-              color={color}
-              fullWidth
-              onClick={() => ga4Events.eventCtaButtonClick("sidenav_top_cta")}
+          <SoftBox component={NavLink} to="/" display="flex" alignItems="center">
+            {brand && <SoftBox component="img" src={brand} alt="Tiny Easy Logo" width="2rem" />}
+            <SoftBox
+              width={!brandName && "100%"}
+              sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}
             >
-              <StarIcon color="white" size="16px" />
-              &nbsp; UPGRADE
-            </SoftButton>
-          </ReactRouterLink>
+              <SoftTypography component="h6" variant="button" fontWeight="medium">
+                &nbsp;&nbsp;{brandName}
+              </SoftTypography>
+            </SoftBox>
+          </SoftBox>
         </SoftBox>
-      </SoftBox>
-      )}
-      {/* Divider 2 */}
-      <SoftBox mx={2}>
-        <Divider />
-      </SoftBox>
-      {/* Navbar links created from routes */}
-      <List>{renderRoutes}</List>
-      {/* Final upgrade CTA */}
-      <SoftBox pt={2} my={2} mx={2} mt="auto">
-        <UpgradeCard />
-      </SoftBox>
+        {/* Divider 1 */}
+        <SoftBox mx={2}>
+          <Divider />
+        </SoftBox>
+        {/* Profile Display */}
+        <SoftBox mx={2}>
+          <ProfileDisplay profileSize="lg" />
+        </SoftBox>
+        {/* Upgrade button */}
+        {displayUpgradeButton && (
+          <SoftBox mt={2} mx={2}>
+            <SoftBox>
+              <ReactRouterLink to={"/upgrade"}>
+                <SoftButton
+                  component="a"
+                  target="_blank"
+                  rel="noreferrer"
+                  variant="gradient"
+                  color={color}
+                  fullWidth
+                  onClick={() => ga4Events.eventCtaButtonClick("sidenav_top_cta")}
+                >
+                  <StarIcon color="white" size="16px" />
+                  &nbsp; UPGRADE
+                </SoftButton>
+              </ReactRouterLink>
+            </SoftBox>
+          </SoftBox>
+        )}
+        {/* Divider 2 */}
+        <SoftBox mx={2}>
+          <Divider />
+        </SoftBox>
+        {/* Navbar links created from routes */}
+        <List>{renderRoutes}</List>
+        {/* Final upgrade CTA */}
+        <SoftBox pt={2} my={2} mx={2} mt="auto">
+          <UpgradeCard />
+        </SoftBox>
     </SidenavRoot>
   );
 }

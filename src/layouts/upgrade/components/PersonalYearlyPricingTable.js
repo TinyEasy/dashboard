@@ -19,9 +19,9 @@ import { UserAuth } from "context/AuthContext";
 
 import { ga4Events } from "logic/google-analytics/google-analytics-events";
 
-function PersonalPricingTable() {
+function PersonalYearlyPricingTable() {
   const { user } = UserAuth();
-  let priceId = "price_1NapQTGwghLOOtVXkj97Occ0";
+  let priceId = "price_1NrrfGGwghLOOtVXDLBKoRhs";
   const anchorRef = useRef(null);
 
   async function handlePurchase() {
@@ -39,7 +39,7 @@ function PersonalPricingTable() {
         console.log(checkoutUrl);
         const formattedCheckoutUrl = checkoutUrl.replace(/^"(.*)"$/, "$1");
         console.log(formattedCheckoutUrl);
-        ga4Events.eventBeginPersonalCheckout();
+        ga4Events.eventBeginPersonalYearlyCheckout();
         window.open(formattedCheckoutUrl, "_blank");
       } catch (error) {
         console.log(error);
@@ -57,7 +57,7 @@ function PersonalPricingTable() {
         </SoftTypography>
         {/* Pricing */}
         <SoftTypography variant="h1" fontWeight="bold" gutterBottom>
-          $12{" "}
+          $9{" "}
           <span>
             <SoftTypography
               variant="body2"
@@ -66,7 +66,7 @@ function PersonalPricingTable() {
               gutterBottom
               component="span"
             >
-              USD/ Month
+              USD/ Month, billed yearly
             </SoftTypography>
           </span>
         </SoftTypography>
@@ -127,4 +127,4 @@ function PersonalPricingTable() {
   );
 }
 
-export default PersonalPricingTable;
+export default PersonalYearlyPricingTable;

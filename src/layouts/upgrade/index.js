@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+
 // @mui material components
 import Grid from "@mui/material/Grid";
 import MuiLink from "@mui/material/Link";
@@ -13,6 +15,7 @@ import Footer from "examples/Footer";
 
 // Dashboard layout components
 import PersonalPricingTable from "./components/PersonalPricingTable";
+import PersonalYearlyPricingTable from "./components/PersonalYearlyPricingTable";
 import BusinessPricingTable from "./components/BusinessPricingTable";
 import FeatureCard from "examples/Cards/DashboardCards/FeatureCard";
 
@@ -21,6 +24,9 @@ import StarIconLine from "examples/Icons/StarIconLine";
 import TickmarkIcon from "examples/Icons/TickmarkIcon";
 import LockIcon from "examples/Icons/LockIcon";
 import StripeCheckoutIcon from "examples/Icons/StripeCheckoutIcon";
+
+import SoftButton from "components/SoftButton";
+import { Card } from "@mui/material";
 
 //Context
 import { UserAuth } from "context/AuthContext";
@@ -45,6 +51,27 @@ function Upgrade() {
       break;
     default:
       break;
+  }
+
+  const [isYearly, setIsYearly] = useState(true);
+
+  const handleYearlyClick = () => {
+    setIsYearly(true);
+    console.log("Set to Yearly");
+  };
+
+  const handleMonthlyClick = () => {
+    setIsYearly(false);
+    console.log("Set to Monthly");
+  };
+
+  let personalTable;
+
+  // Use if statement to conditionally assign the personalTable variable
+  if (isYearly) {
+    personalTable = <PersonalYearlyPricingTable />;
+  } else {
+    personalTable = <PersonalPricingTable />;
   }
 
   return (
@@ -77,14 +104,61 @@ function Upgrade() {
             </span>
           </SoftTypography>
         </SoftBox>
+        {/*Switch*/}
+        <SoftBox mb={1}>
+          <SoftBox width="250px">
+            <Card sx={{ height: "100%" }}>
+              <Grid container>
+                {/* Left Screen */}
+                <Grid item xs={6}>
+                  <SoftButton
+                    onClick={handleYearlyClick}
+                    variant="contained"
+                    color={isYearly ? "info" : "white"}
+                    style={{ width: "100%" }}
+                    m={3}
+                    p={3}
+                    opacity={0}
+                  >
+                    <SoftTypography variant="h6" color={isYearly ? "white" : "dark"}>
+                      <b>Yearly</b>
+                    </SoftTypography>
+                  </SoftButton>
+                </Grid>
+
+                {/* Right Screen */}
+                <Grid item xs={6}>
+                  <SoftButton
+                    onClick={handleMonthlyClick}
+                    variant="contained"
+                    color={isYearly ? "white" : "info"}
+                    style={{ width: "100%" }}
+                    m={3}
+                    p={3}
+                  >
+                    <SoftTypography variant="h6" color={isYearly ? "dark" : "white"}>
+                      <b>Monthly</b>
+                    </SoftTypography>
+                  </SoftButton>
+                </Grid>
+              </Grid>
+            </Card>
+          </SoftBox>
+        </SoftBox>
+        {/*Switch*/}
+        <SoftBox mb={3} mx={1}>
+          <SoftTypography variant="h6" opacity={isYearly ? "1" : "0.4"}>
+            <b>Save 25% with Yearly Billing</b>
+          </SoftTypography>
+        </SoftBox>
         {/*Pricing Tables*/}
         <SoftBox mb={3}>
           <Grid container spacing={3}>
             <Grid item xs={12} lg={4}>
               {/*Personal Card*/}
-              <PersonalPricingTable />
+              {personalTable}
             </Grid>
-            <Grid item xs={12} lg={5}>
+            <Grid item xs={12} lg={6}>
               {/*Business Card*/}
               <BusinessPricingTable />
             </Grid>
@@ -265,6 +339,30 @@ function Upgrade() {
               />
             </Grid>
             {/* Row 2 */}
+
+            <Grid item xs={12} lg={2}>
+              <FeatureCard
+                image="https://drive.google.com/uc?export=download&id=1X1-uoTq24poR8nHguggr0HA8_ePgBvsN"
+                title="Sketch Up Export"
+                description="Import your designs into Sketch Up to create custom 3D models: Structural, Plumbing, Custom Items, Assemble multiple designs and unlock file formats like DWG, IFC etc."
+              />
+            </Grid>
+
+            <Grid item xs={12} lg={2}>
+              <FeatureCard
+                image="https://drive.google.com/uc?export=download&id=12oKoqwno7RSLsLjjrPywrSBnpSlhi06_"
+                title="Render Tool"
+                description="Get Free Early Access to the upcoming Render Tool. Create realistic, high-res marketing renders with 1-click. Choose your view, click the button and download your render."
+              />
+            </Grid>
+
+            <Grid item xs={12} lg={2}>
+              <FeatureCard
+                image="https://drive.google.com/uc?export=download&id=1bncrJW5e5dnme72cU5iiNCbxHN1wC0lb"
+                title="Take Off Tool"
+                description="Coming Soon: Generate a smart spreadsheet with material & item quantity estimations. Enter your wastage & unit costs to get a cost estimate in minutes. Exports to .xsl"
+              />
+            </Grid>
 
             <Grid item xs={12} lg={2}>
               <FeatureCard

@@ -43,6 +43,23 @@ const beginPersonalCheckoutEvent = () => {
   console.log("Begin Personal Checkout Event Fired");
 };
 
+const beginPersonalYearlyCheckoutEvent = () => {
+  ReactGA4.event("begin_checkout", {
+    currency: "USD",
+    value: 108.0,
+    items: [
+      {
+        item_id: "SKU_Personal_Yearly",
+        item_name: "3DTHD Personal Subscription - Yearly",
+        affiliation: "Tiny Easy Dashboard",
+        price: 108.0,
+        quantity: 1,
+      },
+    ],
+  });
+  console.log("Begin Personal Checkout Event Fired");
+};
+
 const personalPurchaseEvent = () => {
   ReactGA4.event("purchase", {
     transaction_id: "T_Personal",
@@ -90,6 +107,7 @@ const ga4Events = {
   eventLogin: loginEvent,
   eventSignup: signupEvent,
   eventBeginPersonalCheckout: beginPersonalCheckoutEvent,
+  eventBeginPersonalYearlyCheckout: beginPersonalYearlyCheckoutEvent,
   eventPersonalPurchase: personalPurchaseEvent,
   eventLaunchButtonClick : launchButtonClickEvent,
   eventBookDemoButtonClick : bookDemoButtonClickEvent,

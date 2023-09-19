@@ -40,8 +40,8 @@ const colors = {
   },
 
   info: {
-    main: "#FE734C",
-    focus: "#3acaeb",
+    main: "#EF7526",
+    focus: "#EF7526",
   },
 
   success: {
@@ -93,8 +93,8 @@ const colors = {
     },
 
     info: {
-      main: "#FF5337",
-      state: "#ED7426"
+      main: "#EDA426",
+      state: "#EF7526"
     },
 
     success: {

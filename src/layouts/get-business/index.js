@@ -131,7 +131,29 @@ function GetBusiness() {
               />
             </Grid>
             {/* Row 2 */}
+            <Grid item xs={12} lg={2}>
+              <FeatureCard
+                image="https://drive.google.com/uc?export=download&id=1X1-uoTq24poR8nHguggr0HA8_ePgBvsN"
+                title="Sketch Up Export"
+                description="Import your designs into Sketch Up to create custom 3D models: Structural, Plumbing, Custom Items, Assemble multiple designs and unlock file formats like DWG, IFC etc."
+              />
+            </Grid>
 
+            <Grid item xs={12} lg={2}>
+              <FeatureCard
+                image="https://drive.google.com/uc?export=download&id=12oKoqwno7RSLsLjjrPywrSBnpSlhi06_"
+                title="Render Tool"
+                description="Get Free Early Access to the upcoming Render Tool. Create realistic, high-res marketing renders with 1-click. Choose your view, click the button and download your render."
+              />
+            </Grid>
+
+            <Grid item xs={12} lg={2}>
+              <FeatureCard
+                image="https://drive.google.com/uc?export=download&id=1bncrJW5e5dnme72cU5iiNCbxHN1wC0lb"
+                title="Take Off Tool"
+                description="Coming Soon: Generate a smart spreadsheet with material & item quantity estimations. Enter your wastage & unit costs to get a cost estimate in minutes. Exports to .xsl"
+              />
+            </Grid>
             <Grid item xs={12} lg={2}>
               <FeatureCard
                 image="https://drive.google.com/uc?export=download&id=1kGdywSAGBKgpAgR1Hk6bqcRPoMQWrStt"
