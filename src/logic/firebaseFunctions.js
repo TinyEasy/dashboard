@@ -1,3 +1,5 @@
+//----------- CHECK OUT -----------//
+
 export async function createCheckoutSession(email, token, priceId, successUrl, cancelUrl) {
   const requestData = {
     email: email,
@@ -11,6 +13,8 @@ export async function createCheckoutSession(email, token, priceId, successUrl, c
   return await triggerFirebaseFunction(token, functionURL, requestData);
 }
 
+//----------- AUTHENTICATION -----------//
+
 export async function setFullName(email, token, fullName) {
   const requestData = {
     email: email,
@@ -21,6 +25,29 @@ export async function setFullName(email, token, fullName) {
 
   return await triggerFirebaseFunction(token, functionURL, requestData);
 }
+
+export async function createUserHash(email, token) {
+  const requestData = {
+    email: email,
+  };
+
+  const functionURL =
+    "https://us-central1-d-tiny-house-designer.cloudfunctions.net/createAnalyticsUserHash";
+  return await triggerFirebaseFunction(token, functionURL, requestData);
+}
+
+export async function setUsageIntent(email, token, usageIntent) {
+  const requestData = {
+    email: email,
+    usageIntent: usageIntent,
+  };
+
+  const functionURL = "https://us-central1-d-tiny-house-designer.cloudfunctions.net/setUsageIntent";
+
+  return await triggerFirebaseFunction(token, functionURL, requestData);
+}
+
+//----------- DESIGNER LICENSE -----------//
 
 export async function checkLicenseVersion(email, token) {
   const requestData = {
@@ -45,41 +72,33 @@ export async function checkLicenseDaysLeft(email, token) {
   //Returns string literal days as a number.
 }
 
-export async function setUsageIntent(email, token, usageIntent)
+//----------- RENDER LICENSE -----------//
+
+export async function checkRenderLicense(email, token)
 {
   const requestData = {
     email: email,
-    usageIntent: usageIntent
   };
 
-  const functionURL = 'https://us-central1-d-tiny-house-designer.cloudfunctions.net/setUsageIntent';
-
+  const functionURL = 'https://us-central1-d-tiny-house-designer.cloudfunctions.net/checkRenderInfo';
   return await triggerFirebaseFunction(token, functionURL, requestData);
+  //Returns 3 values: {"licenseActive":bool,"maxFreeRenders":int,"freeRendersRemaining":int}
 }
 
-export async function createMailchimpSubscription(email, firstName, tags)
-{
+//----------- MAILCHIMP -----------//
+export async function createMailchimpSubscription(email, firstName, tags) {
   const requestData = {
     email: email,
     firstName: firstName,
-    tags: tags
+    tags: tags,
   };
 
-  const functionURL = 'https://us-central1-d-tiny-house-designer.cloudfunctions.net/createMailchimpSubscription';
+  const functionURL =
+    "https://us-central1-d-tiny-house-designer.cloudfunctions.net/createMailchimpSubscription";
   return await triggerFirebaseFunction(null, functionURL, requestData);
 }
 
-export async function createUserHash(email, token)
-{
-  const requestData = {
-    email: email,
-  };
-
-  const functionURL = 'https://us-central1-d-tiny-house-designer.cloudfunctions.net/createAnalyticsUserHash';
-  return await triggerFirebaseFunction(token, functionURL, requestData);
-}
-
-//---------------------------------------------------------------
+//----------- BASE FIREBASE FUNCTION -----------//
 
 async function triggerFirebaseFunction(idToken, functionUrl, requestData) {
   const requestOptions = {
@@ -100,5 +119,3 @@ async function triggerFirebaseFunction(idToken, functionUrl, requestData) {
     throw error;
   }
 }
-
-

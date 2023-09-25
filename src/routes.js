@@ -40,12 +40,14 @@ Example separating header:
 import Home from "layouts/home";
 import Profile from "layouts/profile";
 import Upgrade from "layouts/upgrade";
+import RenderUpgrade from "layouts/render-upgrade";
 import Launch from "layouts/launch";
 import Learn from "layouts/learn";
 import Support from "layouts/support";
 import GetBusiness from "layouts/get-business";
 
 //Sidenav Icons
+import CameraIcon from "examples/Icons/CameraIcon";
 import HomeIcon from "examples/Icons/HomeIcon";
 import StarIcon from "examples/Icons/StarIcon";
 import SpaceShip from "examples/Icons/SpaceShip";
@@ -73,6 +75,16 @@ const routes = [
     component: <Upgrade />,
     noCollapse: true,
     licenses: ["expired", "trial"],
+  },
+  {
+    type: "collapse",
+    name: "Render",
+    key: "render",
+    route: "/render",
+    icon: <CameraIcon size="16px" />,
+    component: <RenderUpgrade />,
+    noCollapse: true,
+    licenses: ["expired", "trial", "personal", "business"],
   },
   {
     type: "collapse",

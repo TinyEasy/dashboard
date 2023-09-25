@@ -17,4 +17,3 @@ const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
 export default app;
-// authDomain: "d-tiny-house-designer.firebaseapp.com",
