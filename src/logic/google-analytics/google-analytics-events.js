@@ -64,6 +64,23 @@ const beginPersonalYearlyCheckoutEvent = () => {
   console.log("Begin Personal Checkout Event Fired");
 };
 
+const beginBusinessRenderMonthlyCheckoutEvent = () => {
+  ReactGA4.event("begin_checkout", {
+    currency: "USD",
+    value: 149.0,
+    items: [
+      {
+        item_id: "SKU_Business_Render_Monthly",
+        item_name: "3DTHD Business Render Subscription - Monthly",
+        affiliation: "Tiny Easy Dashboard",
+        price: 149.0,
+        quantity: 1,
+      },
+    ],
+  });
+  console.log("Begin Business Render Checkout Event Fired");
+};
+
 const personalPurchaseEvent = () => {
   ReactGA4.event("purchase", {
     transaction_id: "T_Personal",
@@ -80,6 +97,24 @@ const personalPurchaseEvent = () => {
     ],
   });
   console.log("Personal Purchase Event Fired");
+};
+
+const businessRenderMonthlyPurchaseEvent = () => {
+  ReactGA4.event("purchase", {
+    transaction_id: "T_Business_Render_Monthly",
+    value: 149.0,
+    currency: "USD",
+    items: [
+      {
+        item_id: "SKU_Business_Render_Monthly",
+        item_name: "3DTHD Business Render Subscription - Monthly",
+        affiliation: "Tiny Easy Dashboard",
+        price: 149.0,
+        quantity: 1,
+      },
+    ],
+  });
+  console.log("Business Render Purchase Event Fired");
 };
 
 //----------Survey Events----------//
@@ -132,6 +167,8 @@ const ga4Events = {
   eventBeginPersonalCheckout: beginPersonalCheckoutEvent,
   eventBeginPersonalYearlyCheckout: beginPersonalYearlyCheckoutEvent,
   eventPersonalPurchase: personalPurchaseEvent,
+  eventBeginBusinessRenderMonthlyCheckout : beginBusinessRenderMonthlyCheckoutEvent,
+  eventBusinessRenderMonthlyPurchase : businessRenderMonthlyPurchaseEvent,
 
   //Survey Events
   eventSurveyResponse: surveyResponseEvent,

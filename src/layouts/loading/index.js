@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
-
 // react-router-dom components
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
@@ -10,12 +8,12 @@ import Grid from "@mui/material/Grid";
 import PageLayout from "examples/LayoutContainers/PageLayout";
 
 //Authentication logic
-import { UserAuth } from "context/AuthContext";
+import { UserLicense } from "context/LicenseContext";
 import loadingGif from "./3DTHD-Loading.gif";
 
 function Loading() {
   const navigate = useNavigate();
-  const { license } = UserAuth();
+  const { license } = UserLicense();
 
   if (
     license === "trial" ||

@@ -25,7 +25,7 @@ import brand from "assets/images/logo-tiny-easy.png";
 
 //Protected Route Logic
 import ProtectedRoute from "logic/ProtectedRoute";
-import { UserAuth } from "context/AuthContext";
+import { UserLicense } from "context/LicenseContext";
 
 export default function App() {
   ///------ Soft UI Methods ------- ///
@@ -64,7 +64,7 @@ export default function App() {
 
   ///------ Loading Methods ------- ///
   const [filteredRoutes, setFilteredRoutes] = useState(routes);
-  const { license } = UserAuth();
+  const { license } = UserLicense();
 
   useEffect(() => {
     if (

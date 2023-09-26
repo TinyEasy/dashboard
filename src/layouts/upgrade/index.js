@@ -1,19 +1,22 @@
+//Logic
 import React, { useState } from "react";
 
 // @mui material components
 import Grid from "@mui/material/Grid";
 import MuiLink from "@mui/material/Link";
+import { Card } from "@mui/material";
 
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
+import SoftButton from "components/SoftButton";
 
 // Soft UI Dashboard React examples
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbarTinyEasy from "examples/Navbars/DashboardNavbarTinyEasy";
 import Footer from "examples/Footer";
 
-// Dashboard layout components
+// Page Components
 import PersonalPricingTable from "./components/PersonalPricingTable";
 import PersonalYearlyPricingTable from "./components/PersonalYearlyPricingTable";
 import BusinessPricingTable from "./components/BusinessPricingTable";
@@ -25,14 +28,11 @@ import TickmarkIcon from "examples/Icons/TickmarkIcon";
 import LockIcon from "examples/Icons/LockIcon";
 import StripeCheckoutIcon from "examples/Icons/StripeCheckoutIcon";
 
-import SoftButton from "components/SoftButton";
-import { Card } from "@mui/material";
-
 //Context
-import { UserAuth } from "context/AuthContext";
+import { UserLicense } from "context/LicenseContext";
 
 function Upgrade() {
-  const { license } = UserAuth();
+  const { license } = UserLicense();
 
   let licenseText = "License";
 

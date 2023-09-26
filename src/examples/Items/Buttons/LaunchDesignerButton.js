@@ -9,7 +9,6 @@ function LaunchDesignerButton() {
   const navigate = useNavigate();
   const { user } = UserAuth();
 
-
   const awsUrl = "https://s3.ap-southeast-2.amazonaws.com/launcher.tinyeasy.co.nz/index.html";
   let id = "ID";
   if (user && user.uid) {

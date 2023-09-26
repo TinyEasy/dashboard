@@ -1,6 +1,5 @@
 // @mui material components
 import Grid from "@mui/material/Grid";
-import MuiLink from "@mui/material/Link";
 
 // Soft UI Dashboard React components
 import SoftBox from "components/SoftBox";
@@ -19,10 +18,10 @@ import FeatureCard from "examples/Cards/DashboardCards/FeatureCard";
 import StarIconLine from "examples/Icons/StarIconLine";
 
 //Context
-import { UserAuth } from "context/AuthContext";
+import { UserLicense } from "context/LicenseContext";
 
 function GetBusiness() {
-  const { license } = UserAuth();
+  const { license } = UserLicense();
 
   let licenseText = "License";
 

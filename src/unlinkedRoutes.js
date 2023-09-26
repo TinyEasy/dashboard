@@ -3,6 +3,7 @@ import SignUpDetailsTinyEasy from "layouts/authentication/sign-up-details";
 import SignInTinyEasy from "layouts/authentication/sign-in-tiny-easy";
 import ResetPassword from "layouts/authentication/reset-password";
 import SubscriptionSuccess from "layouts/subscription-success";
+import RenderSubscriptionSuccess from "layouts/render-subscription-success";
 import Launcher from "layouts/launcher";
 import Loading from "layouts/loading";
 import LaunchError from "layouts/launch-error";
@@ -37,6 +38,12 @@ const unlinkedRoutes = [
     key: "subscriptionsuccess",
     route: "/subscription-success",
     component: <SubscriptionSuccess />,
+  },
+  {
+    name: "Render Subscription Purchased",
+    key: "rendersubscriptionsuccess",
+    route: "/render-subscription-success",
+    component: <RenderSubscriptionSuccess />,
   },
   {
     name: "Launcher",

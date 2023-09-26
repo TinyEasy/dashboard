@@ -1,16 +1,24 @@
-import { Grid } from "@mui/material";
+//Logic
+import PropTypes from "prop-types";
 
+//Components
+import { Grid } from "@mui/material";
 import SoftAvatar from "components/SoftAvatar";
 import SoftBox from "components/SoftBox";
 import SoftTypography from "components/SoftTypography";
 
+//Images
 import profileBlank from "assets/images/profile-blank.png";
 
+//Contexts
 import { UserAuth } from "context/AuthContext";
-import PropTypes from "prop-types";
+import { UserLicense } from "context/LicenseContext";
+
+
 
 function ProfileDisplay({ profileSize }) {
-  const { user, license, licenseExpiry } = UserAuth();
+  const { user } = UserAuth();
+  const { license, licenseExpiry } = UserLicense();
 
   let licenseText = "Free Trial";
   let licenseColor = "info";

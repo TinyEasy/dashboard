@@ -40,7 +40,7 @@ Example separating header:
 import Home from "layouts/home";
 import Profile from "layouts/profile";
 import Upgrade from "layouts/upgrade";
-import RenderUpgrade from "layouts/render-upgrade";
+import Render from "layouts/render-upgrade";
 import Launch from "layouts/launch";
 import Learn from "layouts/learn";
 import Support from "layouts/support";
@@ -78,21 +78,21 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Render",
-    key: "render",
-    route: "/render",
-    icon: <CameraIcon size="16px" />,
-    component: <RenderUpgrade />,
-    noCollapse: true,
-    licenses: ["expired", "trial", "personal", "business"],
-  },
-  {
-    type: "collapse",
     name: "Launch Designer",
     key: "launch",
     route: "/launch",
     icon: <SpaceShip size="16px" />,
     component: <Launch />,
+    noCollapse: true,
+    licenses: ["expired", "trial", "personal", "business"],
+  },
+  {
+    type: "collapse",
+    name: "Render",
+    key: "render",
+    route: "/render",
+    icon: <CameraIcon size="16px" />,
+    component: <Render />,
     noCollapse: true,
     licenses: ["expired", "trial", "personal", "business"],
   },

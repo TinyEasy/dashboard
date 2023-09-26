@@ -38,10 +38,10 @@ import ProfileDisplay from "examples/Items/ProfileDisplay/ProfileDisplay";
 import { ga4Events } from "logic/google-analytics/google-analytics-events";
 
 //Context
-import { UserAuth } from "context/AuthContext";
+import { UserLicense } from "context/LicenseContext";
 
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
-  const { license } = UserAuth();
+  const { license } = UserLicense();
   let displayUpgradeButton = true;
 
   if (license === "personal" || license === "business") displayUpgradeButton = false;

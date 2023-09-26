@@ -12,19 +12,18 @@ import SoftTypography from "components/SoftTypography";
 // Custom styles for the SidenavCard
 import { card, cardContent, cardIconBox, cardIcon } from "examples/Sidenav/styles/sidenavCard";
 
-// Soft UI Dashboard React context
+//Contexts
 import { useSoftUIController } from "context";
+import { UserLicense } from "context/LicenseContext";
 
-//Context
-import { UserAuth } from "context/AuthContext";
-
+//Events
 import { ga4Events } from "logic/google-analytics/google-analytics-events";
 
 function UpgradeCard() {
   const [controller] = useSoftUIController();
   const { miniSidenav, sidenavColor } = controller;
 
-  const { license } = UserAuth();
+  const { license } = UserLicense();
 
   let heading = "Unlock 3DTHD today!";
   let body = "All tools ready at your fingertips...";

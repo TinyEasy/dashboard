@@ -1,3 +1,4 @@
+//Logic
 import { Link } from "react-router-dom";
 
 // @mui material components
@@ -17,10 +18,10 @@ import warning from "assets/images/illustrations/warning.png";
 import StarIcon from "examples/Icons/StarIcon";
 
 //Context
-import { UserAuth } from "context/AuthContext";
+import { UserLicense } from "context/LicenseContext";
 
 function LicenseReminderPageItem() {
-  const { license } = UserAuth();
+  const { license } = UserLicense();
 
   if (license === "expired")
     return (

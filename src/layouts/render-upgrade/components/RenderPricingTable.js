@@ -21,7 +21,7 @@ import { ga4Events } from "logic/google-analytics/google-analytics-events";
 
 function RenderPricingTable() {
   const { user } = UserAuth();
-  let priceId = "price_1NapQTGwghLOOtVXkj97Occ0";
+  let priceId = "price_1NuSIXGwghLOOtVXDqNrJVlg";
   const anchorRef = useRef(null);
 
   async function handlePurchase() {
@@ -33,13 +33,13 @@ function RenderPricingTable() {
           user.email,
           user.accessToken,
           priceId,
-          "https://dashboard.tinyeasy.co.nz/subscription-success",
-          "https://dashboard.tinyeasy.co.nz/upgrade"
+          "https://dashboard.tinyeasy.co.nz/render-subscription-success",
+          "https://dashboard.tinyeasy.co.nz/render"
         );
         console.log(checkoutUrl);
         const formattedCheckoutUrl = checkoutUrl.replace(/^"(.*)"$/, "$1");
         console.log(formattedCheckoutUrl);
-        ga4Events.eventBeginPersonalCheckout();
+        ga4Events.eventBeginBusinessRenderMonthlyCheckout();
         window.open(formattedCheckoutUrl, "_blank");
       } catch (error) {
         console.log(error);
