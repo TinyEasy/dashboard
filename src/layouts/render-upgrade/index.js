@@ -140,7 +140,7 @@ function Render() {
             {/*Button*/}
             <SoftBox mb={3} width="225px">
               <MuiLink
-                href="https://www.tinyeasy.co.nz/tiny-house-render-tool"
+                href="https://www.tinyeasy.com/tiny-house-render-tool"
                 target="_blank"
                 rel="noreferrer"
               >

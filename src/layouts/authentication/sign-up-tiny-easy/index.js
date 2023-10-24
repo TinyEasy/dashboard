@@ -179,7 +179,7 @@ function SignUpTinyEasy() {
           By signing up you agree to receive occasional emails from us and agree to our&nbsp;
           <SoftTypography
             component={Link}
-            to="https://www.tinyeasy.co.nz/terms"
+            to="https://www.tinyeasy.com/terms"
             variant="button"
             fontWeight="bold"
             textGradient
@@ -188,7 +188,7 @@ function SignUpTinyEasy() {
           </SoftTypography>
           <SoftTypography
             component={Link}
-            to="https://www.tinyeasy.co.nz/privacy-policy"
+            to="https://www.tinyeasy.com/privacy-policy"
             variant="button"
             fontWeight="bold"
             textGradient
@@ -198,7 +198,7 @@ function SignUpTinyEasy() {
           &nbsp;and&nbsp;
           <SoftTypography
             component={Link}
-            to="https://www.tinyeasy.co.nz/cookie-policy"
+            to="https://www.tinyeasy.com/cookie-policy"
             variant="button"
             fontWeight="bold"
             textGradient

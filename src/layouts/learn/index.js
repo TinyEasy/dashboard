@@ -41,7 +41,7 @@ function Learn() {
                 watchTime="Follow bite-sized videos!"
                 action={{
                   type: "external",
-                  route: "https://www.tinyeasy.co.nz/3dthd-course-basics",
+                  route: "https://www.tinyeasy.com/3dthd-course-basics",
                 }}
               />
             </Grid>
@@ -68,7 +68,7 @@ function Learn() {
                 description="All tutorials for the interface. Learn which buttons do what!"
                 action={{
                   type: "external",
-                  route: "https://www.tinyeasy.co.nz/courses/3dthd-basics/chapter-2-1-the-interface",
+                  route: "https://www.tinyeasy.com/courses/3dthd-basics/chapter-2-1-the-interface",
                 }}
               />
             </Grid>
@@ -80,7 +80,7 @@ function Learn() {
                 description="Learn the basics on how to move around in the 3DTHD."
                 action={{
                   type: "external",
-                  route: "https://www.tinyeasy.co.nz/courses/3dthd-basics/chapter-2-3-moving-the-camera",
+                  route: "https://www.tinyeasy.com/courses/3dthd-basics/chapter-2-3-moving-the-camera",
                 }}
               />
             </Grid>
@@ -93,7 +93,7 @@ function Learn() {
                 action={{
                   type: "external",
                   route:
-                    "https://www.tinyeasy.co.nz/courses/3dthd-basics/chapter-2-6-moving-objects",
+                    "https://www.tinyeasy.com/courses/3dthd-basics/chapter-2-6-moving-objects",
                 }}
               />
             </Grid>
@@ -105,7 +105,7 @@ function Learn() {
                 description="How to modify your tiny home's exterior."
                 action={{
                   type: "external",
-                  route: "https://www.tinyeasy.co.nz/courses/3dthd-basics/chapter-2-7-modify-tiny-house-size-trailer",
+                  route: "https://www.tinyeasy.com/courses/3dthd-basics/chapter-2-7-modify-tiny-house-size-trailer",
                 }}
               />
             </Grid>
@@ -117,7 +117,7 @@ function Learn() {
                 description="How to use basic furniture components."
                 action={{
                   type: "external",
-                  route: "https://www.tinyeasy.co.nz/courses/3dthd-basics/chapter-2-14-add-cabinets-furniture",
+                  route: "https://www.tinyeasy.com/courses/3dthd-basics/chapter-2-14-add-cabinets-furniture",
                 }}
               />
             </Grid>
@@ -129,7 +129,7 @@ function Learn() {
                 description="Learn how to style your tiny home with materials."
                 action={{
                   type: "external",
-                  route: "https://www.tinyeasy.co.nz/courses/3dthd-basics/chapter-2-15-modify-materials",
+                  route: "https://www.tinyeasy.com/courses/3dthd-basics/chapter-2-15-modify-materials",
                 }}
               />
             </Grid>

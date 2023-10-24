@@ -71,7 +71,7 @@ function Home() {
                   watchTime="Bite-sized videos to get you started!"
                   action={{
                     type: "external",
-                    route: "https://www.tinyeasy.co.nz/3dthd-course-basics",
+                    route: "https://www.tinyeasy.com/3dthd-course-basics",
                   }}
                 />
               </Grid>
@@ -83,7 +83,7 @@ function Home() {
                   description="Learn the basics on how to move around in the 3DTHD."
                   action={{
                     type: "external",
-                    route: "https://www.tinyeasy.co.nz/courses/3dthd-basics/chapter-2-3-moving-the-camera",
+                    route: "https://www.tinyeasy.com/courses/3dthd-basics/chapter-2-3-moving-the-camera",
                   }}
                 />
               </Grid>

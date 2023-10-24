@@ -138,7 +138,7 @@ function BusinessPricingTable() {
         <Grid container spacing={3}>
           <Grid item xs={12} lg={5}>
             <MuiLink
-              href={"https://www.tinyeasy.co.nz/book-your-demo"}
+              href={"https://www.tinyeasy.com/book-your-demo"}
               target="_blank"
               rel="noreferrer"
             >
