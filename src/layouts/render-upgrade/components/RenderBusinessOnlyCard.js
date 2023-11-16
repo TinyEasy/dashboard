@@ -24,7 +24,7 @@ function RenderBusinessOnlyCard() {
         {/*Contact Us*/}
         <SoftBox width="225px">
           <MuiLink
-            href="https://www.tinyeasy.co.nz/book-your-demo"
+            href="https://www.tinyeasy.com/book-your-demo"
             target="_blank"
             rel="noreferrer"
           >

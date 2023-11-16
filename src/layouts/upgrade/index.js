@@ -91,7 +91,7 @@ function Upgrade() {
             {licenseText}{" "}
             <span>
               <MuiLink
-                href={"https://www.tinyeasy.co.nz/3dthd-pricing"}
+                href={"https://www.tinyeasy.com/3dthd-pricing"}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -352,7 +352,7 @@ function Upgrade() {
               <FeatureCard
                 image="https://drive.google.com/uc?export=download&id=12oKoqwno7RSLsLjjrPywrSBnpSlhi06_"
                 title="Render Tool"
-                description="Get Free Early Access to the upcoming Render Tool. Create realistic, high-res marketing renders with 1-click. Choose your view, click the button and download your render."
+                description="Get the Render Tool Add On! Create realistic, high-res marketing renders with 1-click. Choose your view, click the button and download your render."
               />
             </Grid>
 
@@ -360,7 +360,7 @@ function Upgrade() {
               <FeatureCard
                 image="https://drive.google.com/uc?export=download&id=1bncrJW5e5dnme72cU5iiNCbxHN1wC0lb"
                 title="Take Off Tool"
-                description="Coming Soon: Generate a smart spreadsheet with material & item quantity estimations. Enter your wastage & unit costs to get a cost estimate in minutes. Exports to .xsl"
+                description="Generate a smart spreadsheet with material & item quantity estimations. Enter your wastage & unit costs to get a cost estimate in minutes. Exports to .xsl"
               />
             </Grid>
 

@@ -36,7 +36,7 @@ function Support() {
               image="https://drive.google.com/uc?export=download&id=1MLiBHElbmCtM1CTNy4YvnEnxcSNtTGne"
               action={{
                 type: "external",
-                route: "https://www.tinyeasy.co.nz/faq",
+                route: "https://www.tinyeasy.com/faq",
                 label: "Read F.A.Q.",
               }}
             />
@@ -49,7 +49,7 @@ function Support() {
               image="https://drive.google.com/uc?export=download&id=1WrDgQ-kkxWwzFlG_PXOQJ6maTKIAKJsZ"
               action={{
                 type: "external",
-                route: "https://www.tinyeasy.co.nz/contact",
+                route: "https://www.tinyeasy.com/contact",
                 label: "Contact Us",
               }}
             >
@@ -67,7 +67,7 @@ function Support() {
               image="https://drive.google.com/uc?export=download&id=15JbXV4e1zLGWvhg6k1xtPQygcTY8TX-k"
               action={{
                 type: "external",
-                route: "https://www.tinyeasy.co.nz/book-your-demo",
+                route: "https://www.tinyeasy.com/book-your-demo",
                 label: "Book Call",
               }}
               onClickAction={() => ga4Events.eventCtaButtonClick("support_book_call_cta")}
